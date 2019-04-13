@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="absvwHeaderLookup.cs" />
     <Compile Include="AccumulatedPension.cs" />
     <Compile Include="Control.cs" />
     <Compile Include="Badge.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="InsuredMaster.cs" />
     <Compile Include="Member.cs" />
     <Compile Include="MemberData.cs" />
+    <Compile Include="MemberDetail.cs" />
     <Compile Include="Note.cs" />
     <Compile Include="PensionCalculations.cs" />
     <Compile Include="PensionHrs.cs" />

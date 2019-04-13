@@ -2,7 +2,7 @@
 
 namespace ILAManagementPro.Data.Data
 {
-    public class GangSchedule
+    public class absGangSchedule
     {
         public int Id { get; set; }
 

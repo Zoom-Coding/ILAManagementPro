@@ -2,7 +2,7 @@
 
 namespace ILAManagementPro.Data.Data
 {
-    public class GetWorkScheduleByDateResult
+    public class abscGetWorkScheduleByDateResult
     {
         public int Id { get; set; }
 

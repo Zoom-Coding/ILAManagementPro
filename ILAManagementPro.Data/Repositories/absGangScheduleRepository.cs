@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ILAManagementPro.Data
+namespace ILAManagementPro.Data.Repositories
 {
-    public class Class1
+    class absGangScheduleRepository
     {
     }
 }

@@ -1,14 +1,13 @@
-﻿using ILAManagementPro.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace ILAManagementPro.Data.Data
 {
-    public class Berth
+    public class absBerth
     {
-        public Berth()
+        public absBerth()
         {
-            this.WorkScheduleHeaders = new HashSet<WorkScheduleHeader>();
+            this.WorkScheduleHeaders = new HashSet<absWorkScheduleHeader>();
         }
 
         public int id { get; set; }
@@ -25,6 +24,6 @@ namespace ILAManagementPro.Data.Data
 
         public DateTime? UpdateDateTime { get; set; }
 
-        public virtual ICollection<WorkScheduleHeader> WorkScheduleHeaders { get; set; }
+        public virtual ICollection<absWorkScheduleHeader> WorkScheduleHeaders { get; set; }
     }
 }

@@ -1,9 +1,8 @@
-﻿using ILAManagementPro.Models;
-using System;
+﻿using System;
 
 namespace ILAManagementPro.Data.Data
 {
-    public class BadgeCardCrossRef
+    public class absBadgeCardCrossRef
     {
         public int Id { get; set; }
 

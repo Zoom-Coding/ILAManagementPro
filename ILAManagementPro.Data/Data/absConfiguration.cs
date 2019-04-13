@@ -2,7 +2,7 @@
 
 namespace ILAManagementPro.Data.Data
 {
-    public class Configuration
+    public class absConfiguration
     {
         public string KeyValue { get; set; }
 

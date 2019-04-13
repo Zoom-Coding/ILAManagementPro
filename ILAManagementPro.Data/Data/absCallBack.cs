@@ -1,9 +1,8 @@
-﻿using ILAManagementPro.Models;
-using System;
+﻿using System;
 
 namespace ILAManagementPro.Data.Data
 {
-    public class CallBack
+    public class absCallBack
     {
         public int Id { get; set; }
 

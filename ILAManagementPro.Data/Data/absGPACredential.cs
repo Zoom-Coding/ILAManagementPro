@@ -2,7 +2,7 @@
 
 namespace ILAManagementPro.Data.Data
 {
-    public class GPACredential
+    public class absGPACredential
     {
         public decimal CARD_ID { get; set; }
 
