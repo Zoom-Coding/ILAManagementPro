@@ -6,3 +6,10 @@
 /ILAManagementPro.Web/bin
 /ILAManagementPro.Web/obj/Debug
 /packages
+/ILAManagementPro.Web/obj/Release
+/ILAManagementPro.Bll/bin/Debug
+/ILAManagementPro.Bll/obj
+/ILAManagementPro.Data/bin/Debug
+/ILAManagementPro.Data/obj
+/ILAManagementPro.Models/bin/Debug
+/ILAManagementPro.Models/obj
