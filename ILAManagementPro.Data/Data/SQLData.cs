@@ -12,7 +12,7 @@ namespace ILAManagementPro.Data.Data
 {
     public class SQLData
     {
-        public static Control GetControl()
+        public static ControlEntity GetControl()
         {
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.AppendLine("SELECT FtpFileName, FtpFileFolder, FtpDrugTestFileName, FtpWelfareFileName, ");
@@ -23,7 +23,7 @@ namespace ILAManagementPro.Data.Data
             stringBuilder.AppendLine("EmailWeek, EmailAcct, UpdateUser, UpdateDate ");
             stringBuilder.AppendLine("FROM dbo.Control");
             DataTable dataTable = RunSQLScript(stringBuilder.ToString());
-            return new Control()
+            return new ControlEntity()
             {
                 FtpFileName = dataTable.Rows[0]["FtpFileName"].ToString(),
                 FtpFileFolder = dataTable.Rows[0]["FtpFileFolder"].ToString(),
@@ -57,7 +57,7 @@ namespace ILAManagementPro.Data.Data
             };
         }
 
-        public static string UpdateControl(Control dto)
+        public static string UpdateControl(ControlEntity dto)
         {
             string str = "";
             if (!RunSQLUpdateScript("UPDATE Control SET FtpSendFileName = '" + dto.FtpSendFileName.Trim() + "'"))

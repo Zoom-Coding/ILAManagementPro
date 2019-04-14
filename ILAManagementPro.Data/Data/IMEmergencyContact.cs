@@ -4,9 +4,9 @@ namespace ILAManagementPro.Data.Data
 {
     public class IMEmergencyContact
     {
-        public int Id { get; set; }
+        public int id { get; set; }
 
-        public decimal CardNo { get; set; }
+        public Decimal CardNo { get; set; }
 
         public string ContactName { get; set; }
 

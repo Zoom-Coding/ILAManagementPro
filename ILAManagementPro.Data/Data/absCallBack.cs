@@ -6,7 +6,7 @@ namespace ILAManagementPro.Data.Data
     {
         public int Id { get; set; }
 
-        public decimal cardNumberId { get; set; }
+        public decimal CardNumberId { get; set; }
 
         public string PhoneNumber { get; set; }
 

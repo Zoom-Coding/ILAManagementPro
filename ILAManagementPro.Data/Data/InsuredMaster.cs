@@ -7,11 +7,11 @@ namespace ILAManagementPro.Data.Data
     {
         public InsuredMaster()
         {
-            this.absBadgeCardCrossRefs = new HashSet<absBadgeCardCrossRef>();
-            this.absDailySuspensions = new HashSet<absDailySuspension>();
-            this.absCallBacks = new HashSet<absCallBack>();
-            this.WorkHeaders = new HashSet<WorkHeader>();
-            this.WorkHeaders1 = new HashSet<WorkHeader>();
+            this.absBadgeCardCrossRefs = (ICollection<absBadgeCardCrossRef>)new HashSet<absBadgeCardCrossRef>();
+            this.absDailySuspensions = (ICollection<absDailySuspension>)new HashSet<absDailySuspension>();
+            this.absCallBacks = (ICollection<absCallBack>)new HashSet<absCallBack>();
+            this.absWorkHeaders = (ICollection<absWorkHeader>)new HashSet<absWorkHeader>();
+            this.absWorkHeaders1 = (ICollection<absWorkHeader>)new HashSet<absWorkHeader>();
         }
 
         public decimal CardNo { get; set; }
@@ -48,7 +48,7 @@ namespace ILAManagementPro.Data.Data
 
         public string Sex { get; set; }
 
-        public Decimal? SSN { get; set; }
+        public decimal? SSN { get; set; }
 
         public string SSNo { get; set; }
 
@@ -138,8 +138,8 @@ namespace ILAManagementPro.Data.Data
 
         public virtual ICollection<absCallBack> absCallBacks { get; set; }
 
-        public virtual ICollection<WorkHeader> WorkHeaders { get; set; }
+        public virtual ICollection<absWorkHeader> absWorkHeaders { get; set; }
 
-        public virtual ICollection<WorkHeader> WorkHeaders1 { get; set; }
+        public virtual ICollection<absWorkHeader> absWorkHeaders1 { get; set; }
     }
 }
