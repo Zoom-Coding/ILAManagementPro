@@ -10,16 +10,16 @@
         {
             this.Id = old.Id;
             this.Description = old.Description;
-            this.WGDescription = old.WGDescription;
+            this.WorkGangDescription = old.WorkGangDescription;
             this.DriverGang = old.DriverGang;
         }
 
         public override string ToString()
         {
-            return this.WGDescription;
+            return this.WorkGangDescription;
         }
 
-        public string WGDescription { get; set; }
+        public string WorkGangDescription { get; set; }
 
         public bool DriverGang { get; set; }
 

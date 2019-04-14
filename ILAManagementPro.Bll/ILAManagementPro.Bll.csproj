@@ -41,9 +41,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WorkScheduleMaintenance\ConfigurationBll.cs" />
+    <Compile Include="WorkScheduleMaintenance\MaintenanceBll.cs" />
+    <Compile Include="WorkScheduleMaintenance\MemberBll.cs" />
+    <Compile Include="WorkScheduleMaintenance\SecurityBll.cs" />
+    <Compile Include="WorkScheduleMaintenance\WorkHeaderBll.cs" />
+    <Compile Include="WorkScheduleMaintenance\WorkScheduleBll.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ILAManagementPro.Data\ILAManagementPro.Data.csproj">
+      <Project>{0FA5181B-0A16-4583-BDA7-F0CFF05057DE}</Project>
+      <Name>ILAManagementPro.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ILAManagementPro.Models\ILAManagementPro.Models.csproj">
+      <Project>{0794E9DA-8AAB-4F12-8E7D-7CEF0ED1F9F9}</Project>
+      <Name>ILAManagementPro.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
