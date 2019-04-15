@@ -427,6 +427,16 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ILAManagementPro.Bll\ILAManagementPro.Bll.csproj">
+      <Project>{f4e50d48-3430-47dc-906a-f04618477636}</Project>
+      <Name>ILAManagementPro.Bll</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ILAManagementPro.Models\ILAManagementPro.Models.csproj">
+      <Project>{0794e9da-8aab-4f12-8e7d-7cef0ed1f9f9}</Project>
+      <Name>ILAManagementPro.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

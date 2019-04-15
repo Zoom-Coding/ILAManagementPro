@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using ILAManagementPro.Bll.WorkScheduleMaintenance;
+using System;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace ILAManagementPro.Web
 {
@@ -11,7 +8,7 @@ namespace ILAManagementPro.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            SecurityBll.LogInNewUser("kglover");
         }
     }
 }

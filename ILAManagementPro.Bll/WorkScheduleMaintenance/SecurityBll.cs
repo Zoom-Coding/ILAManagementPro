@@ -8,7 +8,7 @@ namespace ILAManagementPro.Bll.WorkScheduleMaintenance
 {
     public class SecurityBll
     {
-        internal static void Login(string newUser, string oldUser)
+        public static void Login(string newUser, string oldUser)
         {
             AbsScheduleLoginRepository scheduleLoginRepository = new AbsScheduleLoginRepository();
             absScheduleLoginEntity entity = new absScheduleLoginEntity();
@@ -23,25 +23,26 @@ namespace ILAManagementPro.Bll.WorkScheduleMaintenance
                 return;
             scheduleLoginRepository.Delete(byUserId);
         }
-        /*
-        internal static string LogInNewUser(string user)
+        
+        public static string LogInNewUser(string user)
         {
             string str = (string)null;
-            UserSecurityEntity userSecurity = SecurityBLL.GetUserSecurity(user);
+            UserSecurityEntity userSecurity = SecurityBll.GetUserSecurity(user);
             if (userSecurity != null && ((bool?)userSecurity.WorkScheduleMaintenance).HasValue && ((bool?)userSecurity.WorkScheduleMaintenance).Value)
             {
-                if (SecurityBLL.AlreadyLoggedIn(user))
+                if (SecurityBll.AlreadyLoggedIn(user))
                 {
-                    int num1 = (int)MessageBox.Show(user + " is already logged in to this program.");
+                    //int num1 = (int)MessageBox.Show(user + " is already logged in to this program.");
                 }
                 else
                 {
-                    SecurityBLL.Login(user);
+                    SecurityBll.Login(user);
                     str = user;
                 }
             }
             else
             {
+                /*
                 frmChangeUser frmChangeUser = new frmChangeUser(user);
                 int num2 = (int)frmChangeUser.ShowDialog();
                 if (frmChangeUser.MyUser != null)
@@ -52,11 +53,12 @@ namespace ILAManagementPro.Bll.WorkScheduleMaintenance
                 {
                     int num3 = (int)MessageBox.Show(user + " is not authorized to use this program.");
                 }
+                */
             }
             return str;
         }
-        */
-        internal static void LogOutUser(string user)
+        
+        public static void LogOutUser(string user)
         {
             AbsScheduleLoginRepository scheduleLoginRepository = new AbsScheduleLoginRepository();
             absScheduleLoginEntity byUserId = scheduleLoginRepository.GetByUserId(ConfigurationBLL.ProgramName, user);
