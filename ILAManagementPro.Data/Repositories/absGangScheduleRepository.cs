@@ -45,7 +45,7 @@ namespace ILAManagementPro.Data.Repositories
             {
                 using (ILAEntities ilaEntities = new ILAEntities())
                 {
-                    absGangSchedule schedule = ilaEntities.absGangSchedules.Where<absGangSchedule>((Expression<Func<absGangSchedule, bool>>)(b => b.Id == ID)).FirstOrDefault<absGangSchedule>();
+                    absGangSchedule schedule = ilaEntities.absGangSchedules.Where<absGangSchedule>((Expression<Func<absGangSchedule, bool>>)(b => b.id == ID)).FirstOrDefault<absGangSchedule>();
                     if (schedule != null)
                         gangScheduleEntity = this.BuildEntity(schedule);
                 }
@@ -113,7 +113,7 @@ namespace ILAManagementPro.Data.Repositories
                 else
                 {
                     flag = true;
-                    num = absGangSchedule.Id;
+                    num = absGangSchedule.id;
                 }
             }
         }

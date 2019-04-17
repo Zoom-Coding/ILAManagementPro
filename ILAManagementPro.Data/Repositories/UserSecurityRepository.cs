@@ -31,7 +31,7 @@ namespace ILAManagementPro.Data.Repositories
             {
                 using (ILAEntities ilaEntities = new ILAEntities())
                 {
-                    absSecurity member = ilaEntities.absSecurities.Where<absSecurity>((Expression<Func<absSecurity, bool>>)(b => b.Id == ID)).FirstOrDefault<absSecurity>();
+                    absSecurity member = ilaEntities.absSecurities.Where<absSecurity>((Expression<Func<absSecurity, bool>>)(b => b.id == ID)).FirstOrDefault<absSecurity>();
                     if (member != null)
                         userSecurityEntity = this.BuildEntity(member);
                 }
@@ -83,7 +83,7 @@ namespace ILAManagementPro.Data.Repositories
                 return;
             using (ILAEntities ilaEntities = new ILAEntities())
             {
-                absSecurity absSecurity1 = ilaEntities.absSecurities.Where<absSecurity>((Expression<Func<absSecurity, bool>>)(b => b.Id == ID)).FirstOrDefault<absSecurity>();
+                absSecurity absSecurity1 = ilaEntities.absSecurities.Where<absSecurity>((Expression<Func<absSecurity, bool>>)(b => b.id == ID)).FirstOrDefault<absSecurity>();
                 if (absSecurity1 != null)
                 {
                     absSecurity1.Login = entity.LogIn;
@@ -202,7 +202,7 @@ namespace ILAManagementPro.Data.Repositories
             int.TryParse(entity.Id, out id);
             using (ILAEntities ilaEntities = new ILAEntities())
             {
-                absSecurity absSecurity1 = ilaEntities.absSecurities.Where<absSecurity>((Expression<Func<absSecurity, bool>>)(b => b.Id == id)).FirstOrDefault<absSecurity>();
+                absSecurity absSecurity1 = ilaEntities.absSecurities.Where<absSecurity>((Expression<Func<absSecurity, bool>>)(b => b.id == id)).FirstOrDefault<absSecurity>();
                 if (absSecurity1 == null)
                 {
                     absSecurity entity1 = new absSecurity();
@@ -311,7 +311,7 @@ namespace ILAManagementPro.Data.Repositories
                 else
                 {
                     flag = true;
-                    id = absSecurity1.Id;
+                    id = absSecurity1.id;
                 }
             }
             if (!flag)
@@ -332,7 +332,7 @@ namespace ILAManagementPro.Data.Repositories
                 return;
             using (ILAEntities ilaEntities = new ILAEntities())
             {
-                absSecurity entity1 = ilaEntities.absSecurities.Where<absSecurity>((Expression<Func<absSecurity, bool>>)(b => b.Id == ID)).FirstOrDefault<absSecurity>();
+                absSecurity entity1 = ilaEntities.absSecurities.Where<absSecurity>((Expression<Func<absSecurity, bool>>)(b => b.id == ID)).FirstOrDefault<absSecurity>();
                 if (entity1 != null)
                 {
                     try
@@ -367,7 +367,7 @@ namespace ILAManagementPro.Data.Repositories
         private UserSecurityEntity BuildEntity(absSecurity member)
         {
             UserSecurityEntity userSecurityEntity = new UserSecurityEntity();
-            userSecurityEntity.Id = member.Id.ToString();
+            userSecurityEntity.Id = member.id.ToString();
             userSecurityEntity.LogIn = member.Login;
             if (member.UserName != null)
                 userSecurityEntity.UserName = member.UserName.Trim();

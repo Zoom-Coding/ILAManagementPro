@@ -31,7 +31,7 @@ namespace ILAManagementPro.Data.Repositories
             {
                 using (ILAEntities ilaEntities = new ILAEntities())
                 {
-                    absWorkGangDescription gang = ilaEntities.absWorkGangDescriptions.Where<absWorkGangDescription>((Expression<Func<absWorkGangDescription, bool>>)(b => b.Id == ID)).FirstOrDefault<absWorkGangDescription>();
+                    absWorkGangDescription gang = ilaEntities.absWorkGangDescriptions.Where<absWorkGangDescription>((Expression<Func<absWorkGangDescription, bool>>)(b => b.id == ID)).FirstOrDefault<absWorkGangDescription>();
                     if (gang != null)
                         descriptionEntity = this.BuildEntity(gang);
                 }
@@ -50,10 +50,10 @@ namespace ILAManagementPro.Data.Repositories
                 return;
             using (ILAEntities ilaEntities = new ILAEntities())
             {
-                absWorkGangDescription workGangDescription = ilaEntities.absWorkGangDescriptions.Where<absWorkGangDescription>((Expression<Func<absWorkGangDescription, bool>>)(b => b.Id == ID)).FirstOrDefault<absWorkGangDescription>();
+                absWorkGangDescription workGangDescription = ilaEntities.absWorkGangDescriptions.Where<absWorkGangDescription>((Expression<Func<absWorkGangDescription, bool>>)(b => b.id == ID)).FirstOrDefault<absWorkGangDescription>();
                 if (workGangDescription != null)
                 {
-                    workGangDescription.Description = entity.Description.ToUpper().Trim();
+                    workGangDescription.WorkGangDescription = entity.Description.ToUpper().Trim();
                     workGangDescription.DriverGang = new bool?(entity.DriverGang);
                     if (!string.IsNullOrEmpty(entity.User))
                         workGangDescription.UpdateUser = entity.User.Trim();
@@ -93,11 +93,11 @@ namespace ILAManagementPro.Data.Repositories
             int num = -1;
             using (ILAEntities ilaEntities = new ILAEntities())
             {
-                absWorkGangDescription workGangDescription = ilaEntities.absWorkGangDescriptions.Where<absWorkGangDescription>((Expression<Func<absWorkGangDescription, bool>>)(b => b.Description.ToUpper().Trim() == entity.Description.ToUpper().Trim())).FirstOrDefault<absWorkGangDescription>();
+                absWorkGangDescription workGangDescription = ilaEntities.absWorkGangDescriptions.Where<absWorkGangDescription>((Expression<Func<absWorkGangDescription, bool>>)(b => b.WorkGangDescription.ToUpper().Trim() == entity.Description.ToUpper().Trim())).FirstOrDefault<absWorkGangDescription>();
                 if (workGangDescription == null)
                 {
                     absWorkGangDescription entity1 = new absWorkGangDescription();
-                    entity1.Description = entity.Description.ToUpper().Trim();
+                    entity1.WorkGangDescription = entity.Description.ToUpper().Trim();
                     entity1.DriverGang = new bool?(entity.DriverGang);
                     if (!string.IsNullOrEmpty(entity.User))
                         entity1.AddUser = entity.User.Trim();
@@ -137,7 +137,7 @@ namespace ILAManagementPro.Data.Repositories
                 else
                 {
                     flag = true;
-                    num = workGangDescription.Id;
+                    num = workGangDescription.id;
                 }
             }
             if (!flag)
@@ -157,7 +157,7 @@ namespace ILAManagementPro.Data.Repositories
                 return;
             using (ILAEntities ilaEntities = new ILAEntities())
             {
-                absWorkGangDescription entity1 = ilaEntities.absWorkGangDescriptions.Where<absWorkGangDescription>((Expression<Func<absWorkGangDescription, bool>>)(b => b.Id == ID)).FirstOrDefault<absWorkGangDescription>();
+                absWorkGangDescription entity1 = ilaEntities.absWorkGangDescriptions.Where<absWorkGangDescription>((Expression<Func<absWorkGangDescription, bool>>)(b => b.id == ID)).FirstOrDefault<absWorkGangDescription>();
                 if (entity1 != null)
                 {
                     try
@@ -193,8 +193,8 @@ namespace ILAManagementPro.Data.Repositories
           absWorkGangDescription gang)
         {
             WorkGangDescriptionEntity descriptionEntity = new WorkGangDescriptionEntity();
-            descriptionEntity.Id = gang.Id.ToString();
-            descriptionEntity.Description = gang.Description.Trim();
+            descriptionEntity.Id = gang.id.ToString();
+            descriptionEntity.Description = gang.WorkGangDescription.Trim();
             descriptionEntity.DriverGang = gang.DriverGang.HasValue && gang.DriverGang.Value;
             return descriptionEntity;
         }

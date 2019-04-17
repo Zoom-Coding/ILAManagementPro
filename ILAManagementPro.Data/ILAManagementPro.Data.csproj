@@ -44,6 +44,8 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,39 +54,40 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bll\AS400Bll.cs" />
-    <Compile Include="Data\absWorkDetail.cs" />
-    <Compile Include="Data\absWorkHeader.cs" />
-    <Compile Include="Data\AS400Data.cs" />
     <Compile Include="Data\absBadgeCardCrossRef.cs" />
     <Compile Include="Data\absBerth.cs" />
     <Compile Include="Data\absCallBack.cs" />
-    <Compile Include="Data\CompanyMaster.cs" />
     <Compile Include="Data\absConfiguration.cs" />
     <Compile Include="Data\absDailySuspension.cs" />
     <Compile Include="Data\absGangSchedule.cs" />
-    <Compile Include="Data\abscGetWorkScheduleByDateResult.cs" />
     <Compile Include="Data\absGPACredential.cs" />
-    <Compile Include="Data\ILAEntities.cs" />
-    <Compile Include="Data\IMEmergencyContact.cs" />
-    <Compile Include="Data\InsuredMaster.cs" />
-    <Compile Include="Data\absvwMemberDetail.cs" />
-    <Compile Include="Data\Note.cs" />
     <Compile Include="Data\absScheduleNote.cs" />
     <Compile Include="Data\absSecurity.cs" />
     <Compile Include="Data\absShiftTime.cs" />
-    <Compile Include="Data\SQLData.cs" />
-    <Compile Include="Data\TimeCardEntryErrorLog.cs" />
     <Compile Include="Data\absVessel.cs" />
-    <Compile Include="Data\absvwWorkDetail.cs" />
+    <Compile Include="Data\absWorkDetail.cs" />
     <Compile Include="Data\absWorkGangDescription.cs" />
-    <Compile Include="Data\WorkDetail.cs" />
     <Compile Include="Data\absWorkGangTemplate.cs" />
-    <Compile Include="Data\WorkHeader.cs" />
-    <Compile Include="Data\absvwWorkSchedule.cs" />
+    <Compile Include="Data\absWorkHeader.cs" />
     <Compile Include="Data\absWorkScheduleHeader.cs" />
     <Compile Include="Data\absWorkScheduleLogin.cs" />
+    <Compile Include="Bll\AS400Bll.cs" />
+    <Compile Include="Data\CompanyMaster.cs" />
+    <Compile Include="Data\AS400Data.cs" />
+    <Compile Include="Data\abscGetWorkScheduleByDateResult.cs" />
+    <Compile Include="Data\TimeCardEntryErrorLog.cs" />
+    <Compile Include="Data\WorkDetail.cs" />
+    <Compile Include="Data\WorkHeader.cs" />
+    <None Include="Data\Backup\ILAEntities.cs.hold" />
+    <Compile Include="Data\absvwMemberDetail.cs" />
+    <Compile Include="Data\SQLData.cs" />
+    <Compile Include="Data\absvwWorkDetail.cs" />
+    <Compile Include="Data\absvwWorkSchedule.cs" />
+    <Compile Include="Data\ILAEntities.cs" />
+    <Compile Include="Data\IMEmergencyContact.cs" />
+    <Compile Include="Data\InsuredMaster.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Data\Note.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AbsBadgeRespository.cs" />
     <Compile Include="Repositories\AbsBerthRepository.cs" />
@@ -119,6 +122,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Data\Backup\ILAModel.csdl.hold" />
+    <None Include="Data\Backup\ILAModel.msl.hold" />
+    <None Include="Data\Backup\ILAModel.ssdl.hold" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

@@ -83,7 +83,7 @@ namespace ILAManagementPro.Data.Repositories
             {
                 using (ILAEntities ilaEntities = new ILAEntities())
                 {
-                    absWorkScheduleHeader schedule = ilaEntities.absWorkScheduleHeaders.Where<absWorkScheduleHeader>((Expression<Func<absWorkScheduleHeader, bool>>)(b => b.Id == ID)).FirstOrDefault<absWorkScheduleHeader>();
+                    absWorkScheduleHeader schedule = ilaEntities.absWorkScheduleHeaders.Where<absWorkScheduleHeader>((Expression<Func<absWorkScheduleHeader, bool>>)(b => b.id == ID)).FirstOrDefault<absWorkScheduleHeader>();
                     if (schedule != null)
                         scheduleHeaderEntity = this.BuildEntity(schedule);
                 }
@@ -118,7 +118,7 @@ namespace ILAManagementPro.Data.Repositories
             int entityId = Convert.ToInt32(entity.Id);
             using (ILAEntities ilaEntities = new ILAEntities())
             {
-                absWorkScheduleHeader workScheduleHeader = ilaEntities.absWorkScheduleHeaders.Where<absWorkScheduleHeader>((Expression<Func<absWorkScheduleHeader, bool>>)(b => b.Id == entityId)).FirstOrDefault<absWorkScheduleHeader>();
+                absWorkScheduleHeader workScheduleHeader = ilaEntities.absWorkScheduleHeaders.Where<absWorkScheduleHeader>((Expression<Func<absWorkScheduleHeader, bool>>)(b => b.id == entityId)).FirstOrDefault<absWorkScheduleHeader>();
                 if (workScheduleHeader != null)
                 {
                     workScheduleHeader.DateWorked = (DateTime)entity.DateWorked;
@@ -198,7 +198,7 @@ namespace ILAManagementPro.Data.Repositories
                 {
                     ilaEntities.absWorkScheduleHeaders.Add(entity1);
                     ilaEntities.SaveChanges();
-                    num = entity1.Id;
+                    num = entity1.id;
                 }
                 catch (DbEntityValidationException ex)
                 {
@@ -251,7 +251,7 @@ namespace ILAManagementPro.Data.Repositories
                 return;
             using (ILAEntities ilaEntities = new ILAEntities())
             {
-                absWorkScheduleHeader entity1 = ilaEntities.absWorkScheduleHeaders.Where<absWorkScheduleHeader>((Expression<Func<absWorkScheduleHeader, bool>>)(b => b.Id == ID)).FirstOrDefault<absWorkScheduleHeader>();
+                absWorkScheduleHeader entity1 = ilaEntities.absWorkScheduleHeaders.Where<absWorkScheduleHeader>((Expression<Func<absWorkScheduleHeader, bool>>)(b => b.id == ID)).FirstOrDefault<absWorkScheduleHeader>();
                 if (entity1 != null)
                 {
                     try
@@ -287,7 +287,7 @@ namespace ILAManagementPro.Data.Repositories
           absWorkScheduleHeader schedule)
         {
             WorkScheduleHeaderEntity scheduleHeaderEntity1 = new WorkScheduleHeaderEntity();
-            scheduleHeaderEntity1.Id = schedule.Id.ToString();
+            scheduleHeaderEntity1.Id = schedule.id.ToString();
             scheduleHeaderEntity1.DateWorked = (DateTime)schedule.DateWorked;
             WorkScheduleHeaderEntity scheduleHeaderEntity2 = scheduleHeaderEntity1;
             CompanyEntity companyEntity1 = new CompanyEntity();
@@ -300,13 +300,13 @@ namespace ILAManagementPro.Data.Repositories
             WorkScheduleHeaderEntity scheduleHeaderEntity3 = scheduleHeaderEntity1;
             BerthEntity berthEntity1 = new BerthEntity();
             berthEntity1.Id = schedule.BerthId.ToString();
-            berthEntity1.ShortBerthName = schedule.Berth.BerthShortName.Trim();
+            berthEntity1.ShortBerthName = schedule.absBerth.BerthShortName.Trim();
             BerthEntity berthEntity2 = berthEntity1;
             scheduleHeaderEntity3.Berth = berthEntity2;
             WorkScheduleHeaderEntity scheduleHeaderEntity4 = scheduleHeaderEntity1;
             VesselEntity vesselEntity1 = new VesselEntity();
             vesselEntity1.Id = schedule.VesselId.ToString();
-            vesselEntity1.VesselName = schedule.Vessel.VesselName.Trim();
+            vesselEntity1.VesselName = schedule.absVessel.VesselName.Trim();
             VesselEntity vesselEntity2 = vesselEntity1;
             scheduleHeaderEntity4.Vessel = vesselEntity2;
             scheduleHeaderEntity1.ShiftTime = (DateTime)schedule.ShiftTime;

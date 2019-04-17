@@ -1,0 +1,536 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ILAModelStoreContainer" CdmEntityContainer="ILAEntities">
+    <EntitySetMapping Name="CompanyMasters">
+      <EntityTypeMapping TypeName="ILAModel.CompanyMaster">
+        <MappingFragment StoreEntitySet="CompanyMaster">
+          <ScalarProperty Name="HasNotes" ColumnName="HasNotes" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+          <ScalarProperty Name="AddedUser" ColumnName="AddedUser" />
+          <ScalarProperty Name="CoImport" ColumnName="CoImport" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="CompanyCode" ColumnName="CompanyCode" />
+          <ScalarProperty Name="CoSymbol" ColumnName="CoSymbol" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="CoNo" ColumnName="CoNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InsuredMasters">
+      <EntityTypeMapping TypeName="ILAModel.InsuredMaster">
+        <MappingFragment StoreEntitySet="InsuredMaster">
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="CellPhone" ColumnName="CellPhone" />
+          <ScalarProperty Name="DRIVER_TWIC_ID" ColumnName="DRIVER_TWIC_ID" />
+          <ScalarProperty Name="DailySuspension" ColumnName="DailySuspension" />
+          <ScalarProperty Name="HeaderYN" ColumnName="HeaderYN" />
+          <ScalarProperty Name="SettleAmt" ColumnName="SettleAmt" />
+          <ScalarProperty Name="DateSettleStart" ColumnName="DateSettleStart" />
+          <ScalarProperty Name="Settlement" ColumnName="Settlement" />
+          <ScalarProperty Name="EffDateHHFee" ColumnName="EffDateHHFee" />
+          <ScalarProperty Name="EffDateChkOff" ColumnName="EffDateChkOff" />
+          <ScalarProperty Name="CreditUnion" ColumnName="CreditUnion" />
+          <ScalarProperty Name="LocalRate" ColumnName="LocalRate" />
+          <ScalarProperty Name="MemberSince" ColumnName="MemberSince" />
+          <ScalarProperty Name="EthnicOrigin" ColumnName="EthnicOrigin" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="HiringHallFee" ColumnName="HiringHallFee" />
+          <ScalarProperty Name="DateRenewed" ColumnName="DateRenewed" />
+          <ScalarProperty Name="DateDeceased" ColumnName="DateDeceased" />
+          <ScalarProperty Name="DateLastWorked" ColumnName="DateLastWorked" />
+          <ScalarProperty Name="strDateRetired" ColumnName="strDateRetired" />
+          <ScalarProperty Name="strDateHired" ColumnName="strDateHired" />
+          <ScalarProperty Name="strDateBirth" ColumnName="strDateBirth" />
+          <ScalarProperty Name="HasNotes" ColumnName="HasNotes" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+          <ScalarProperty Name="AddedUser" ColumnName="AddedUser" />
+          <ScalarProperty Name="SendToExcelThisMonth" ColumnName="SendToExcelThisMonth" />
+          <ScalarProperty Name="MonthCapitaDollars" ColumnName="MonthCapitaDollars" />
+          <ScalarProperty Name="PerCapitaHourly" ColumnName="PerCapitaHourly" />
+          <ScalarProperty Name="MemberServicePay" ColumnName="MemberServicePay" />
+          <ScalarProperty Name="VotingRights" ColumnName="VotingRights" />
+          <ScalarProperty Name="MemberAgencyFeePay" ColumnName="MemberAgencyFeePay" />
+          <ScalarProperty Name="CopeAuth" ColumnName="CopeAuth" />
+          <ScalarProperty Name="CheckOffAuth" ColumnName="CheckOffAuth" />
+          <ScalarProperty Name="SuspEndedDate" ColumnName="SuspEndedDate" />
+          <ScalarProperty Name="Suspension" ColumnName="Suspension" />
+          <ScalarProperty Name="PrintLabel" ColumnName="PrintLabel" />
+          <ScalarProperty Name="PrintEmergFundCheck" ColumnName="PrintEmergFundCheck" />
+          <ScalarProperty Name="AreaPhone" ColumnName="AreaPhone" />
+          <ScalarProperty Name="SSNo" ColumnName="SSNo" />
+          <ScalarProperty Name="SSN" ColumnName="SSN" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="ClassCode" ColumnName="ClassCode" />
+          <ScalarProperty Name="DateRetired" ColumnName="DateRetired" />
+          <ScalarProperty Name="DateHired" ColumnName="DateHired" />
+          <ScalarProperty Name="DateBirth" ColumnName="DateBirth" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="ST" ColumnName="ST" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="OrigFirstName" ColumnName="OrigFirstName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="MI" ColumnName="MI" />
+          <ScalarProperty Name="OrigLastName" ColumnName="OrigLastName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="OrigCardNo" ColumnName="OrigCardNo" />
+          <ScalarProperty Name="CardNo" ColumnName="CardNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="absBerths">
+      <EntityTypeMapping TypeName="ILAModel.absBerth">
+        <MappingFragment StoreEntitySet="absBerth">
+          <ScalarProperty Name="UpdateDateTime" ColumnName="UpdateDateTime" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="AddUser" ColumnName="AddUser" />
+          <ScalarProperty Name="BerthFullName" ColumnName="BerthFullName" />
+          <ScalarProperty Name="BerthShortName" ColumnName="BerthShortName" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="absVessels">
+      <EntityTypeMapping TypeName="ILAModel.absVessel">
+        <MappingFragment StoreEntitySet="absVessel">
+          <ScalarProperty Name="LLoydsId" ColumnName="LLoydsId" />
+          <ScalarProperty Name="UpdateDateTime" ColumnName="UpdateDateTime" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="AddUser" ColumnName="AddUser" />
+          <ScalarProperty Name="VesselName" ColumnName="VesselName" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="absWorkGangDescriptions">
+      <EntityTypeMapping TypeName="ILAModel.absWorkGangDescription">
+        <MappingFragment StoreEntitySet="absWorkGangDescription">
+          <ScalarProperty Name="DriverGang" ColumnName="DriverGang" />
+          <ScalarProperty Name="UpdateDateTime" ColumnName="UpdateDateTime" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="AddUser" ColumnName="AddUser" />
+          <ScalarProperty Name="WorkGangDescription" ColumnName="WorkGangDescription" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="absvwWorkSchedules">
+      <EntityTypeMapping TypeName="ILAModel.absvwWorkSchedule">
+        <MappingFragment StoreEntitySet="absvwWorkSchedule">
+          <ScalarProperty Name="EmergencyGang" ColumnName="EmergencyGang" />
+          <ScalarProperty Name="SetBack" ColumnName="SetBack" />
+          <ScalarProperty Name="IsReplacementHeader" ColumnName="IsReplacementHeader" />
+          <ScalarProperty Name="Cancelled" ColumnName="Cancelled" />
+          <ScalarProperty Name="GangDescription" ColumnName="GangDescription" />
+          <ScalarProperty Name="Header" ColumnName="Header" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="ShiftDateTime" ColumnName="ShiftDateTime" />
+          <ScalarProperty Name="Vessel" ColumnName="Vessel" />
+          <ScalarProperty Name="Berth" ColumnName="Berth" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="absWorkScheduleHeaders">
+      <EntityTypeMapping TypeName="ILAModel.absWorkScheduleHeader">
+        <MappingFragment StoreEntitySet="absWorkScheduleHeader">
+          <ScalarProperty Name="EmergencyGang" ColumnName="EmergencyGang" />
+          <ScalarProperty Name="SetBack" ColumnName="SetBack" />
+          <ScalarProperty Name="UpdateDateTime" ColumnName="UpdateDateTime" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="AddUser" ColumnName="AddUser" />
+          <ScalarProperty Name="BerthQuestion" ColumnName="BerthQuestion" />
+          <ScalarProperty Name="Cancelled" ColumnName="Cancelled" />
+          <ScalarProperty Name="Display" ColumnName="Display" />
+          <ScalarProperty Name="ShiftTime" ColumnName="ShiftTime" />
+          <ScalarProperty Name="VesselId" ColumnName="VesselId" />
+          <ScalarProperty Name="BerthId" ColumnName="BerthId" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="DateWorked" ColumnName="DateWorked" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="absConfigurations">
+      <EntityTypeMapping TypeName="ILAModel.absConfiguration">
+        <MappingFragment StoreEntitySet="absConfiguration">
+          <ScalarProperty Name="UpdateDateTime" ColumnName="UpdateDateTime" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="AddUser" ColumnName="AddUser" />
+          <ScalarProperty Name="propValue" ColumnName="propValue" />
+          <ScalarProperty Name="keyValue" ColumnName="keyValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="absWorkScheduleLogins">
+      <EntityTypeMapping TypeName="ILAModel.absWorkScheduleLogin">
+        <MappingFragment StoreEntitySet="absWorkScheduleLogins">
+          <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
+          <ScalarProperty Name="UpdateDateTime" ColumnName="UpdateDateTime" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="AddUser" ColumnName="AddUser" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="absBadgeCardCrossRefs">
+      <EntityTypeMapping TypeName="ILAModel.absBadgeCardCrossRef">
+        <MappingFragment StoreEntitySet="absBadgeCardCrossRef">
+          <ScalarProperty Name="UpdateDateTime" ColumnName="UpdateDateTime" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="AddUser" ColumnName="AddUser" />
+          <ScalarProperty Name="BadgeNumber" ColumnName="BadgeNumber" />
+          <ScalarProperty Name="CardNumber" ColumnName="CardNumber" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="absScheduleNotes">
+      <EntityTypeMapping TypeName="ILAModel.absScheduleNote">
+        <MappingFragment StoreEntitySet="absScheduleNote">
+          <ScalarProperty Name="UpdateDateTime" ColumnName="UpdateDateTime" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="AddUser" ColumnName="AddUser" />
+          <ScalarProperty Name="endDate" ColumnName="endDate" />
+          <ScalarProperty Name="beginDate" ColumnName="beginDate" />
+          <ScalarProperty Name="note" ColumnName="note" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="absDailySuspensions">
+      <EntityTypeMapping TypeName="ILAModel.absDailySuspension">
+        <MappingFragment StoreEntitySet="absDailySuspension">
+          <ScalarProperty Name="UpdateDateTime" ColumnName="UpdateDateTime" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="AddUser" ColumnName="AddUser" />
+          <ScalarProperty Name="SuspensionExpireDateTime" ColumnName="SuspensionExpireDateTime" />
+          <ScalarProperty Name="CardNumber" ColumnName="CardNumber" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="absShiftTimes">
+      <EntityTypeMapping TypeName="ILAModel.absShiftTime">
+        <MappingFragment StoreEntitySet="absShiftTimes">
+          <ScalarProperty Name="UpdateDateTime" ColumnName="UpdateDateTime" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="AddUser" ColumnName="AddUser" />
+          <ScalarProperty Name="PickTime" ColumnName="PickTime" />
+          <ScalarProperty Name="MilitaryTime" ColumnName="MilitaryTime" />
+          <ScalarProperty Name="DisplayTime" ColumnName="DisplayTime" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="absCallBacks">
+      <EntityTypeMapping TypeName="ILAModel.absCallBack">
+        <MappingFragment StoreEntitySet="absCallBack">
+          <ScalarProperty Name="UpdateDateTime" ColumnName="UpdateDateTime" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="AddUser" ColumnName="AddUser" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="callBackDateTime" ColumnName="callBackDateTime" />
+          <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+          <ScalarProperty Name="cardNumberId" ColumnName="cardNumberId" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="absWorkHeaders">
+      <EntityTypeMapping TypeName="ILAModel.absWorkHeader">
+        <MappingFragment StoreEntitySet="absWorkHeader">
+          <ScalarProperty Name="DriverFile" ColumnName="DriverFile" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="AddedUser" ColumnName="AddedUser" />
+          <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+          <ScalarProperty Name="ReplaceHeaderId" ColumnName="ReplaceHeaderId" />
+          <ScalarProperty Name="WorkGangDescriptionId" ColumnName="WorkGangDescriptionId" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CheckOutTime" ColumnName="CheckOutTime" />
+          <ScalarProperty Name="CheckOut" ColumnName="CheckOut" />
+          <ScalarProperty Name="CheckInTime" ColumnName="CheckInTime" />
+          <ScalarProperty Name="CheckIn" ColumnName="CheckIn" />
+          <ScalarProperty Name="Header" ColumnName="Header" />
+          <ScalarProperty Name="WorkScheduleHeaderId" ColumnName="WorkScheduleHeaderId" />
+          <ScalarProperty Name="CounterId" ColumnName="CounterId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="absWorkDetails">
+      <EntityTypeMapping TypeName="ILAModel.absWorkDetail">
+        <MappingFragment StoreEntitySet="absWorkDetail">
+          <ScalarProperty Name="FTPWrite" ColumnName="FTPWrite" />
+          <ScalarProperty Name="UpdateDateTime" ColumnName="UpdateDateTime" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="AddUser" ColumnName="AddUser" />
+          <ScalarProperty Name="DetlComment" ColumnName="DetlComment" />
+          <ScalarProperty Name="CheckOutTime" ColumnName="CheckOutTime" />
+          <ScalarProperty Name="CheckOut" ColumnName="CheckOut" />
+          <ScalarProperty Name="CheckInTime" ColumnName="CheckInTime" />
+          <ScalarProperty Name="CheckIn" ColumnName="CheckIn" />
+          <ScalarProperty Name="CardNo" ColumnName="CardNo" />
+          <ScalarProperty Name="Seq" ColumnName="Seq" />
+          <ScalarProperty Name="absWorkHeaderId" ColumnName="absWorkHeaderId" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notes">
+      <EntityTypeMapping TypeName="ILAModel.Note">
+        <MappingFragment StoreEntitySet="Notes">
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+          <ScalarProperty Name="AddedUser" ColumnName="AddedUser" />
+          <ScalarProperty Name="Note1" ColumnName="Note" />
+          <ScalarProperty Name="CardNo" ColumnName="CardNo" />
+          <ScalarProperty Name="NoteId" ColumnName="NoteId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkDetails">
+      <EntityTypeMapping TypeName="ILAModel.WorkDetail">
+        <MappingFragment StoreEntitySet="WorkDetails">
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="AddedUser" ColumnName="AddedUser" />
+          <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+          <ScalarProperty Name="DetlComment" ColumnName="DetlComment" />
+          <ScalarProperty Name="CheckOutTime" ColumnName="CheckOutTime" />
+          <ScalarProperty Name="CheckOut" ColumnName="CheckOut" />
+          <ScalarProperty Name="CheckInTime" ColumnName="CheckInTime" />
+          <ScalarProperty Name="CheckIn" ColumnName="CheckIn" />
+          <ScalarProperty Name="CardNo" ColumnName="CardNo" />
+          <ScalarProperty Name="Seq" ColumnName="Seq" />
+          <ScalarProperty Name="Header" ColumnName="Header" />
+          <ScalarProperty Name="DateOfWork" ColumnName="DateOfWork" />
+          <ScalarProperty Name="DetlCounter" ColumnName="DetlCounter" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkHeaders">
+      <EntityTypeMapping TypeName="ILAModel.WorkHeader">
+        <MappingFragment StoreEntitySet="WorkHeader">
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="AddedUser" ColumnName="AddedUser" />
+          <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CheckOutTime" ColumnName="CheckOutTime" />
+          <ScalarProperty Name="CheckOut" ColumnName="CheckOut" />
+          <ScalarProperty Name="CheckInTime" ColumnName="CheckInTime" />
+          <ScalarProperty Name="CheckIn" ColumnName="CheckIn" />
+          <ScalarProperty Name="Vessel" ColumnName="Vessel" />
+          <ScalarProperty Name="Berth" ColumnName="Berth" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="Header" ColumnName="Header" />
+          <ScalarProperty Name="DateWorked" ColumnName="DateWorked" />
+          <ScalarProperty Name="CounterId" ColumnName="CounterId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="absvwWorkDetails">
+      <EntityTypeMapping TypeName="ILAModel.absvwWorkDetail">
+        <MappingFragment StoreEntitySet="absvwWorkDetails">
+          <ScalarProperty Name="DetailUpdateDateTime" ColumnName="DetailUpdateDateTime" />
+          <ScalarProperty Name="DetailUpdateUser" ColumnName="DetailUpdateUser" />
+          <ScalarProperty Name="DetailAddDateTime" ColumnName="DetailAddDateTime" />
+          <ScalarProperty Name="DetailAddUser" ColumnName="DetailAddUser" />
+          <ScalarProperty Name="HeaderUpdateUser" ColumnName="HeaderUpdateUser" />
+          <ScalarProperty Name="HeaderUpdateDate" ColumnName="HeaderUpdateDate" />
+          <ScalarProperty Name="HeaderAddedUser" ColumnName="HeaderAddedUser" />
+          <ScalarProperty Name="HeaderAddedDate" ColumnName="HeaderAddedDate" />
+          <ScalarProperty Name="ScheduleUpdateDateTime" ColumnName="ScheduleUpdateDateTime" />
+          <ScalarProperty Name="ScheduleUpdateUser" ColumnName="ScheduleUpdateUser" />
+          <ScalarProperty Name="ScheduleAddDateTime" ColumnName="ScheduleAddDateTime" />
+          <ScalarProperty Name="ScheduleAddUser" ColumnName="ScheduleAddUser" />
+          <ScalarProperty Name="DetailComment" ColumnName="DetailComment" />
+          <ScalarProperty Name="DetailCheckOutTime" ColumnName="DetailCheckOutTime" />
+          <ScalarProperty Name="DetailCheckOut" ColumnName="DetailCheckOut" />
+          <ScalarProperty Name="DetailCheckInTime" ColumnName="DetailCheckInTime" />
+          <ScalarProperty Name="DetailCheckIn" ColumnName="DetailCheckIn" />
+          <ScalarProperty Name="DetailMemberName" ColumnName="DetailMemberName" />
+          <ScalarProperty Name="DetailCardNumber" ColumnName="DetailCardNumber" />
+          <ScalarProperty Name="DetailSequence" ColumnName="DetailSequence" />
+          <ScalarProperty Name="HeaderWorkGangDescription" ColumnName="HeaderWorkGangDescription" />
+          <ScalarProperty Name="HeaderComment" ColumnName="HeaderComment" />
+          <ScalarProperty Name="HeaderDescription" ColumnName="HeaderDescription" />
+          <ScalarProperty Name="HeaderCheckOutTime" ColumnName="HeaderCheckOutTime" />
+          <ScalarProperty Name="HeaderCheckOut" ColumnName="HeaderCheckOut" />
+          <ScalarProperty Name="HeaderCheckInTime" ColumnName="HeaderCheckInTime" />
+          <ScalarProperty Name="HeaderCheckIn" ColumnName="HeaderCheckIn" />
+          <ScalarProperty Name="HeaderHeaderName" ColumnName="HeaderHeaderName" />
+          <ScalarProperty Name="HeaderHeader" ColumnName="HeaderHeader" />
+          <ScalarProperty Name="ScheduleBerthQuestion" ColumnName="ScheduleBerthQuestion" />
+          <ScalarProperty Name="ScheduleCancelled" ColumnName="ScheduleCancelled" />
+          <ScalarProperty Name="ScheduleDisplay" ColumnName="ScheduleDisplay" />
+          <ScalarProperty Name="ScheduleShiftTime" ColumnName="ScheduleShiftTime" />
+          <ScalarProperty Name="ScheduleVessel" ColumnName="ScheduleVessel" />
+          <ScalarProperty Name="ScheduleBerth" ColumnName="ScheduleBerth" />
+          <ScalarProperty Name="ScheduleCompanyName" ColumnName="ScheduleCompanyName" />
+          <ScalarProperty Name="ScheduleCompany" ColumnName="ScheduleCompany" />
+          <ScalarProperty Name="ScheduleDateWorked" ColumnName="ScheduleDateWorked" />
+          <ScalarProperty Name="WorkDetailId" ColumnName="WorkDetailId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="absSecurities">
+      <EntityTypeMapping TypeName="ILAModel.absSecurity">
+        <MappingFragment StoreEntitySet="absSecurity">
+          <ScalarProperty Name="PodiumProgram" ColumnName="PodiumProgram" />
+          <ScalarProperty Name="TimeCardMaintenance" ColumnName="TimeCardMaintenance" />
+          <ScalarProperty Name="UpdateDateTime" ColumnName="UpdateDateTime" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="AddUser" ColumnName="AddUser" />
+          <ScalarProperty Name="WorkScheduleMaintenance" ColumnName="WorkScheduleMaintenance" />
+          <ScalarProperty Name="PrintBadge" ColumnName="PrintBadge" />
+          <ScalarProperty Name="AuthorizeUsers" ColumnName="AuthorizeUsers" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="absGPACredentials">
+      <EntityTypeMapping TypeName="ILAModel.absGPACredential">
+        <MappingFragment StoreEntitySet="absGPACredentials">
+          <ScalarProperty Name="ILACardNumber" ColumnName="ILACardNumber" />
+          <ScalarProperty Name="RACE" ColumnName="RACE" />
+          <ScalarProperty Name="SSN" ColumnName="SSN" />
+          <ScalarProperty Name="GENDER" ColumnName="GENDER" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="ZIP" ColumnName="ZIP" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="CITY" ColumnName="CITY" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+          <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+          <ScalarProperty Name="MIDDLE_INIT" ColumnName="MIDDLE_INIT" />
+          <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="CARD_ID" ColumnName="CARD_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TimeCardEntryErrorLogs">
+      <EntityTypeMapping TypeName="ILAModel.TimeCardEntryErrorLog">
+        <MappingFragment StoreEntitySet="TimeCardEntryErrorLog">
+          <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+          <ScalarProperty Name="AddedUser" ColumnName="AddedUser" />
+          <ScalarProperty Name="OtherDate" ColumnName="OtherDate" />
+          <ScalarProperty Name="OtherHeader" ColumnName="OtherHeader" />
+          <ScalarProperty Name="Vessel" ColumnName="Vessel" />
+          <ScalarProperty Name="Berth" ColumnName="Berth" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="Header" ColumnName="Header" />
+          <ScalarProperty Name="AnsYN" ColumnName="AnsYN" />
+          <ScalarProperty Name="MsgDetails" ColumnName="MsgDetails" />
+          <ScalarProperty Name="MsgNo" ColumnName="MsgNo" />
+          <ScalarProperty Name="DateofWork" ColumnName="DateofWork" />
+          <ScalarProperty Name="Cardno" ColumnName="Cardno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="absGangSchedules">
+      <EntityTypeMapping TypeName="ILAModel.absGangSchedule">
+        <MappingFragment StoreEntitySet="absGangSchedule">
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="Gang" ColumnName="Gang" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="Berth" ColumnName="Berth" />
+          <ScalarProperty Name="OutVoyage" ColumnName="OutVoyage" />
+          <ScalarProperty Name="LloydsId" ColumnName="LloydsId" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="absc_GetWorkScheduleByDate" FunctionName="ILAModel.Store.absc_GetWorkScheduleByDate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ILAModel.absc_GetWorkScheduleByDate_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Berth" ColumnName="Berth" />
+          <ScalarProperty Name="Vessel" ColumnName="Vessel" />
+          <ScalarProperty Name="ShiftDateTime" ColumnName="ShiftDateTime" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="Header" ColumnName="Header" />
+          <ScalarProperty Name="GangDescription" ColumnName="GangDescription" />
+          <ScalarProperty Name="Cancelled" ColumnName="Cancelled" />
+          <ScalarProperty Name="IsReplacementHeader" ColumnName="IsReplacementHeader" />
+          <ScalarProperty Name="SetBack" ColumnName="SetBack" />
+          <ScalarProperty Name="EmergencyGang" ColumnName="EmergencyGang" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="absWorkGangTemplates">
+      <EntityTypeMapping TypeName="ILAModel.absWorkGangTemplate">
+        <MappingFragment StoreEntitySet="absWorkGangTemplate">
+          <ScalarProperty Name="UpdateDateTime" ColumnName="UpdateDateTime" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="AddUser" ColumnName="AddUser" />
+          <ScalarProperty Name="DefaultWBGangId" ColumnName="DefaultWBGangId" />
+          <ScalarProperty Name="Default7GangId" ColumnName="Default7GangId" />
+          <ScalarProperty Name="Default6GangId" ColumnName="Default6GangId" />
+          <ScalarProperty Name="Default2GangId" ColumnName="Default2GangId" />
+          <ScalarProperty Name="TemplateCount" ColumnName="TemplateCount" />
+          <ScalarProperty Name="TemplateDescription" ColumnName="TemplateDescription" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="absvwMemberDetails">
+      <EntityTypeMapping TypeName="ILAModel.absvwMemberDetail">
+        <MappingFragment StoreEntitySet="absvwMemberDetails">
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="ClassCode" ColumnName="ClassCode" />
+          <ScalarProperty Name="DateBirth" ColumnName="DateBirth" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MI" ColumnName="MI" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="CardNo" ColumnName="CardNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IMEmergencyContacts">
+      <EntityTypeMapping TypeName="ILAModel.IMEmergencyContact">
+        <MappingFragment StoreEntitySet="IMEmergencyContact">
+          <ScalarProperty Name="UpdateDateTime" ColumnName="UpdateDateTime" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="AddUser" ColumnName="AddUser" />
+          <ScalarProperty Name="Relationship" ColumnName="Relationship" />
+          <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+          <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+          <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+          <ScalarProperty Name="CardNo" ColumnName="CardNo" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

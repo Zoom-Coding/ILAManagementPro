@@ -31,7 +31,7 @@ namespace ILAManagementPro.Data.Repositories
             {
                 using (ILAEntities ilaEntities = new ILAEntities())
                 {
-                    absWorkGangTemplate gang = ilaEntities.absWorkGangTemplates.Where<absWorkGangTemplate>((Expression<Func<absWorkGangTemplate, bool>>)(b => b.Id == ID)).FirstOrDefault<absWorkGangTemplate>();
+                    absWorkGangTemplate gang = ilaEntities.absWorkGangTemplates.Where<absWorkGangTemplate>((Expression<Func<absWorkGangTemplate, bool>>)(b => b.id == ID)).FirstOrDefault<absWorkGangTemplate>();
                     if (gang != null)
                         gangTemplateEntity = this.BuildEntity(gang);
                 }
@@ -50,7 +50,7 @@ namespace ILAManagementPro.Data.Repositories
                 return;
             using (ILAEntities ilaEntities = new ILAEntities())
             {
-                absWorkGangTemplate workGangTemplate1 = ilaEntities.absWorkGangTemplates.Where<absWorkGangTemplate>((Expression<Func<absWorkGangTemplate, bool>>)(b => b.Id == ID)).FirstOrDefault<absWorkGangTemplate>();
+                absWorkGangTemplate workGangTemplate1 = ilaEntities.absWorkGangTemplates.Where<absWorkGangTemplate>((Expression<Func<absWorkGangTemplate, bool>>)(b => b.id == ID)).FirstOrDefault<absWorkGangTemplate>();
                 if (workGangTemplate1 != null)
                 {
                     workGangTemplate1.TemplateDescription = entity.TemplateDescription;
@@ -176,7 +176,7 @@ namespace ILAManagementPro.Data.Repositories
                 else
                 {
                     flag = true;
-                    num = workGangTemplate1.Id;
+                    num = workGangTemplate1.id;
                 }
             }
             if (!flag)
@@ -196,7 +196,7 @@ namespace ILAManagementPro.Data.Repositories
                 return;
             using (ILAEntities ilaEntities = new ILAEntities())
             {
-                absWorkGangTemplate entity1 = ilaEntities.absWorkGangTemplates.Where<absWorkGangTemplate>((Expression<Func<absWorkGangTemplate, bool>>)(b => b.Id == ID)).FirstOrDefault<absWorkGangTemplate>();
+                absWorkGangTemplate entity1 = ilaEntities.absWorkGangTemplates.Where<absWorkGangTemplate>((Expression<Func<absWorkGangTemplate, bool>>)(b => b.id == ID)).FirstOrDefault<absWorkGangTemplate>();
                 if (entity1 != null)
                 {
                     try
@@ -231,7 +231,7 @@ namespace ILAManagementPro.Data.Repositories
         private absWorkGangTemplateEntity BuildEntity(absWorkGangTemplate gang)
         {
             absWorkGangTemplateEntity gangTemplateEntity = new absWorkGangTemplateEntity();
-            gangTemplateEntity.Id = gang.Id.ToString();
+            gangTemplateEntity.Id = gang.id.ToString();
             gangTemplateEntity.TemplateDescription = gang.TemplateDescription.Trim();
             gangTemplateEntity.TemplateCount = gang.TemplateCount;
             gangTemplateEntity.Default2GangId = gang.Default2GangId;

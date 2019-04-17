@@ -1,19 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-
 namespace ILAManagementPro.Data.Data
 {
-    public class absWorkScheduleHeader
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
+
+    [Table("absWorkScheduleHeader")]
+    public partial class absWorkScheduleHeader
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public absWorkScheduleHeader()
         {
-            this.absWorkHeaders = new HashSet<absWorkHeader>();
+            absWorkHeader = new HashSet<absWorkHeader>();
         }
 
-        public int Id { get; set; }
+        public int id { get; set; }
 
         public DateTime DateWorked { get; set; }
 
+        [Column(TypeName = "numeric")]
         public decimal CompanyId { get; set; }
 
         public int BerthId { get; set; }
@@ -28,24 +34,28 @@ namespace ILAManagementPro.Data.Data
 
         public bool BerthQuestion { get; set; }
 
-        public string AddUser { get; set; }
-
-        public DateTime? AddDateTime { get; set; }
-
-        public string UpdateUser { get; set; }
-
-        public DateTime? UpdateDateTime { get; set; }
-
+        [StringLength(20)]
         public string SetBack { get; set; }
 
         public bool? EmergencyGang { get; set; }
 
-        public virtual absBerth Berth { get; set; }
+        [StringLength(50)]
+        public string AddUser { get; set; }
 
-        public virtual absVessel Vessel { get; set; }
+        public DateTime? AddDateTime { get; set; }
+
+        [StringLength(50)]
+        public string UpdateUser { get; set; }
+
+        public DateTime? UpdateDateTime { get; set; }
+
+        public virtual absBerth absBerth { get; set; }
+
+        public virtual absVessel absVessel { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<absWorkHeader> absWorkHeader { get; set; }
 
         public virtual CompanyMaster CompanyMaster { get; set; }
-
-        public virtual ICollection<absWorkHeader> absWorkHeaders { get; set; }
     }
 }

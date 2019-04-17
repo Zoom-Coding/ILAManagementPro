@@ -1,0 +1,788 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ILAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="absBadgeCardCrossRef">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CardNumber" Type="numeric" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="BadgeNumber" Type="int" Nullable="false" />
+    <Property Name="AddUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="AddDateTime" Type="datetime" />
+    <Property Name="UpdateUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdateDateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="absBerth">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BerthShortName" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="BerthFullName" Type="char" MaxLength="50" />
+    <Property Name="AddUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="AddDateTime" Type="datetime" />
+    <Property Name="UpdateUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdateDateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="absCallBack">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cardNumberId" Type="numeric" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="phoneNumber" Type="nchar" MaxLength="15" Nullable="false" />
+    <Property Name="callBackDateTime" Type="datetime" Nullable="false" />
+    <Property Name="active" Type="bit" Nullable="false" />
+    <Property Name="AddUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="AddDateTime" Type="datetime" />
+    <Property Name="UpdateUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdateDateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="absConfiguration">
+    <Key>
+      <PropertyRef Name="keyValue" />
+    </Key>
+    <Property Name="keyValue" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="propValue" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="AddUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="AddDateTime" Type="datetime" />
+    <Property Name="UpdateUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdateDateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="absDailySuspension">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CardNumber" Type="numeric" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="SuspensionExpireDateTime" Type="datetime" Nullable="false" />
+    <Property Name="AddUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="AddDateTime" Type="datetime" />
+    <Property Name="UpdateUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdateDateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="absGangSchedule">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LloydsId" Type="char" MaxLength="7" Nullable="false" />
+    <Property Name="OutVoyage" Type="char" MaxLength="5" />
+    <Property Name="Berth" Type="char" MaxLength="4" />
+    <Property Name="StartTime" Type="datetime" />
+    <Property Name="Gang" Type="char" MaxLength="7" />
+    <Property Name="AddDateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="absGPACredentials">
+    <Key>
+      <PropertyRef Name="CARD_ID" />
+    </Key>
+    <Property Name="CARD_ID" Type="numeric" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="255" />
+    <Property Name="FIRST_NAME" Type="nvarchar" MaxLength="255" />
+    <Property Name="MIDDLE_INIT" Type="nvarchar" MaxLength="255" />
+    <Property Name="LAST_NAME" Type="nvarchar" MaxLength="255" />
+    <Property Name="ADDRESS" Type="nvarchar" MaxLength="255" />
+    <Property Name="CITY" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATE" Type="nvarchar" MaxLength="255" />
+    <Property Name="ZIP" Type="nvarchar" MaxLength="255" />
+    <Property Name="DOB" Type="datetime" />
+    <Property Name="GENDER" Type="nvarchar" MaxLength="255" />
+    <Property Name="SSN" Type="numeric" Precision="38" Scale="0" />
+    <Property Name="RACE" Type="nvarchar" MaxLength="255" />
+    <Property Name="ILACardNumber" Type="numeric" Precision="9" Scale="0" />
+  </EntityType>
+  <EntityType Name="absScheduleNote">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="note" Type="varchar(max)" Nullable="false" />
+    <Property Name="beginDate" Type="datetime" Nullable="false" />
+    <Property Name="endDate" Type="datetime" Nullable="false" />
+    <Property Name="AddUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="AddDateTime" Type="datetime" />
+    <Property Name="UpdateUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdateDateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="absSecurity">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Login" Type="nvarchar" MaxLength="9" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="AuthorizeUsers" Type="bit" />
+    <Property Name="PrintBadge" Type="bit" />
+    <Property Name="WorkScheduleMaintenance" Type="bit" />
+    <Property Name="TimeCardMaintenance" Type="bit" />
+    <Property Name="PodiumProgram" Type="bit" />
+    <Property Name="AddUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="AddDateTime" Type="datetime" />
+    <Property Name="UpdateUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdateDateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="absShiftTimes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DisplayTime" Type="nchar" MaxLength="8" Nullable="false" />
+    <Property Name="MilitaryTime" Type="nchar" MaxLength="5" Nullable="false" />
+    <Property Name="PickTime" Type="nchar" MaxLength="5" Nullable="false" />
+    <Property Name="AddUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="AddDateTime" Type="datetime" />
+    <Property Name="UpdateUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdateDateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="absVessel">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VesselName" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="LLoydsId" Type="char" MaxLength="7" />
+    <Property Name="AddUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="AddDateTime" Type="datetime" />
+    <Property Name="UpdateUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdateDateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="absWorkDetail">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="absWorkHeaderId" Type="int" Nullable="false" />
+    <Property Name="Seq" Type="int" />
+    <Property Name="CardNo" Type="numeric" Precision="9" Scale="0" />
+    <Property Name="CheckIn" Type="nchar" MaxLength="1" />
+    <Property Name="CheckInTime" Type="datetime" />
+    <Property Name="CheckOut" Type="nchar" MaxLength="1" />
+    <Property Name="CheckOutTime" Type="datetime" />
+    <Property Name="DetlComment" Type="nchar" MaxLength="250" />
+    <Property Name="AddUser" Type="nchar" MaxLength="20" />
+    <Property Name="AddDateTime" Type="datetime" />
+    <Property Name="UpdateUser" Type="nchar" MaxLength="20" />
+    <Property Name="UpdateDateTime" Type="datetime" />
+    <Property Name="FTPWrite" Type="bit" />
+  </EntityType>
+  <EntityType Name="absWorkGangDescription">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="WorkGangDescription" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="DriverGang" Type="bit" />
+    <Property Name="AddUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="AddDateTime" Type="datetime" />
+    <Property Name="UpdateUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdateDateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="absWorkGangTemplate">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TemplateDescription" Type="nchar" MaxLength="200" Nullable="false" />
+    <Property Name="TemplateCount" Type="int" Nullable="false" />
+    <Property Name="Default2GangId" Type="int" Nullable="false" />
+    <Property Name="Default6GangId" Type="int" Nullable="false" />
+    <Property Name="Default7GangId" Type="int" Nullable="false" />
+    <Property Name="DefaultWBGangId" Type="int" Nullable="false" />
+    <Property Name="AddUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="AddDateTime" Type="datetime" />
+    <Property Name="UpdateUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdateDateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="absWorkHeader">
+    <Key>
+      <PropertyRef Name="CounterId" />
+    </Key>
+    <Property Name="CounterId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="WorkScheduleHeaderId" Type="int" />
+    <Property Name="Header" Type="numeric" Precision="9" Scale="0" />
+    <Property Name="CheckIn" Type="nchar" MaxLength="1" />
+    <Property Name="CheckInTime" Type="datetime" />
+    <Property Name="CheckOut" Type="nchar" MaxLength="1" />
+    <Property Name="CheckOutTime" Type="datetime" />
+    <Property Name="Description" Type="nvarchar" MaxLength="8" />
+    <Property Name="Comment" Type="nchar" MaxLength="18" />
+    <Property Name="WorkGangDescriptionId" Type="int" />
+    <Property Name="ReplaceHeaderId" Type="numeric" Precision="9" Scale="0" />
+    <Property Name="Location" Type="nvarchar" MaxLength="50" />
+    <Property Name="AddedDate" Type="datetime" />
+    <Property Name="AddedUser" Type="nchar" MaxLength="20" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="UpdateUser" Type="nchar" MaxLength="20" />
+    <Property Name="DriverFile" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="absWorkScheduleHeader">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DateWorked" Type="datetime" Nullable="false" />
+    <Property Name="CompanyId" Type="numeric" Precision="3" Scale="0" Nullable="false" />
+    <Property Name="BerthId" Type="int" Nullable="false" />
+    <Property Name="VesselId" Type="int" Nullable="false" />
+    <Property Name="ShiftTime" Type="datetime" Nullable="false" />
+    <Property Name="Display" Type="bit" Nullable="false" />
+    <Property Name="Cancelled" Type="bit" Nullable="false" />
+    <Property Name="BerthQuestion" Type="bit" Nullable="false" />
+    <Property Name="SetBack" Type="nchar" MaxLength="20" />
+    <Property Name="EmergencyGang" Type="bit" />
+    <Property Name="AddUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="AddDateTime" Type="datetime" />
+    <Property Name="UpdateUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdateDateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="absWorkScheduleLogins">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="ProgramName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="AddDateTime" Type="datetime" />
+    <Property Name="UpdateUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdateDateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CompanyMaster">
+    <Key>
+      <PropertyRef Name="CoNo" />
+    </Key>
+    <Property Name="CoNo" Type="numeric" Precision="3" Scale="0" Nullable="false" />
+    <Property Name="CompanyId" Type="nvarchar" MaxLength="15" />
+    <Property Name="CompanyName" Type="varchar" MaxLength="30" />
+    <Property Name="CoSymbol" Type="nchar" MaxLength="1" />
+    <Property Name="CompanyCode" Type="nchar" MaxLength="5" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="FileName" Type="varchar" MaxLength="30" />
+    <Property Name="CoImport" Type="numeric" Precision="1" Scale="0" />
+    <Property Name="AddedUser" Type="nchar" MaxLength="20" />
+    <Property Name="AddedDate" Type="datetime" />
+    <Property Name="UpdateUser" Type="nchar" MaxLength="20" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="HasNotes" Type="bit" />
+  </EntityType>
+  <EntityType Name="IMEmergencyContact">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CardNo" Type="numeric" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="ContactName" Type="nvarchar" MaxLength="200" />
+    <Property Name="Phone1" Type="nchar" MaxLength="10" />
+    <Property Name="Phone2" Type="nchar" MaxLength="10" />
+    <Property Name="Relationship" Type="nvarchar" MaxLength="50" />
+    <Property Name="AddUser" Type="nvarchar" MaxLength="20" />
+    <Property Name="AddDateTime" Type="datetime" />
+    <Property Name="UpdateUser" Type="nvarchar" MaxLength="20" />
+    <Property Name="UpdateDateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="InsuredMaster">
+    <Key>
+      <PropertyRef Name="CardNo" />
+    </Key>
+    <Property Name="CardNo" Type="numeric" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="OrigCardNo" Type="numeric" Precision="9" Scale="0" />
+    <Property Name="LastName" Type="varchar" MaxLength="20" />
+    <Property Name="OrigLastName" Type="nchar" MaxLength="20" />
+    <Property Name="MI" Type="nchar" MaxLength="1" />
+    <Property Name="MiddleName" Type="varchar" MaxLength="20" />
+    <Property Name="FirstName" Type="varchar" MaxLength="20" />
+    <Property Name="OrigFirstName" Type="varchar" MaxLength="20" />
+    <Property Name="Address" Type="varchar" MaxLength="50" />
+    <Property Name="City" Type="varchar" MaxLength="30" />
+    <Property Name="ST" Type="nchar" MaxLength="2" />
+    <Property Name="Zip" Type="nchar" MaxLength="10" />
+    <Property Name="DateBirth" Type="datetime" />
+    <Property Name="DateHired" Type="datetime" />
+    <Property Name="DateRetired" Type="datetime" />
+    <Property Name="ClassCode" Type="nchar" MaxLength="3" />
+    <Property Name="Sex" Type="nchar" MaxLength="1" />
+    <Property Name="SSN" Type="numeric" Precision="9" Scale="0" />
+    <Property Name="SSNo" Type="varchar" MaxLength="9" />
+    <Property Name="AreaPhone" Type="nchar" MaxLength="10" />
+    <Property Name="PrintEmergFundCheck" Type="nchar" MaxLength="1" />
+    <Property Name="PrintLabel" Type="bit" />
+    <Property Name="Suspension" Type="nchar" MaxLength="1" />
+    <Property Name="SuspEndedDate" Type="datetime" />
+    <Property Name="CheckOffAuth" Type="bit" />
+    <Property Name="CopeAuth" Type="bit" />
+    <Property Name="MemberAgencyFeePay" Type="nchar" MaxLength="1" />
+    <Property Name="VotingRights" Type="bit" />
+    <Property Name="MemberServicePay" Type="bit" />
+    <Property Name="PerCapitaHourly" Type="nchar" MaxLength="1" />
+    <Property Name="MonthCapitaDollars" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="SendToExcelThisMonth" Type="bit" />
+    <Property Name="AddedUser" Type="varchar" MaxLength="20" />
+    <Property Name="AddedDate" Type="datetime" />
+    <Property Name="UpdateUser" Type="varchar" MaxLength="20" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="HasNotes" Type="bit" />
+    <Property Name="strDateBirth" Type="nchar" MaxLength="8" />
+    <Property Name="strDateHired" Type="nchar" MaxLength="8" />
+    <Property Name="strDateRetired" Type="nchar" MaxLength="8" />
+    <Property Name="DateLastWorked" Type="datetime" />
+    <Property Name="DateDeceased" Type="datetime" />
+    <Property Name="DateRenewed" Type="datetime" />
+    <Property Name="HiringHallFee" Type="bit" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="EthnicOrigin" Type="numeric" Precision="2" Scale="0" />
+    <Property Name="MemberSince" Type="datetime" />
+    <Property Name="LocalRate" Type="numeric" Precision="2" Scale="0" />
+    <Property Name="CreditUnion" Type="numeric" Precision="2" Scale="0" />
+    <Property Name="EffDateChkOff" Type="datetime" />
+    <Property Name="EffDateHHFee" Type="datetime" />
+    <Property Name="Settlement" Type="bit" />
+    <Property Name="DateSettleStart" Type="datetime" />
+    <Property Name="SettleAmt" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="HeaderYN" Type="bit" />
+    <Property Name="DailySuspension" Type="bit" />
+    <Property Name="DRIVER_TWIC_ID" Type="char" MaxLength="100" />
+    <Property Name="CellPhone" Type="nchar" MaxLength="10" />
+    <Property Name="EmailAddress" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Notes">
+    <Key>
+      <PropertyRef Name="NoteId" />
+    </Key>
+    <Property Name="NoteId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CardNo" Type="numeric" Precision="9" Scale="0" />
+    <Property Name="Note" Type="ntext" />
+    <Property Name="AddedUser" Type="nchar" MaxLength="20" />
+    <Property Name="AddedDate" Type="datetime" />
+    <Property Name="UpdateUser" Type="nchar" MaxLength="20" />
+    <Property Name="UpdateDate" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ILAAA.dbo.TimeCardEntryErrorLog' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="TimeCardEntryErrorLog">
+    <Key>
+      <PropertyRef Name="Cardno" />
+    </Key>
+    <Property Name="Cardno" Type="numeric" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="DateofWork" Type="datetime" />
+    <Property Name="MsgNo" Type="nchar" MaxLength="10" />
+    <Property Name="MsgDetails" Type="nchar" MaxLength="500" />
+    <Property Name="AnsYN" Type="nchar" MaxLength="3" />
+    <Property Name="Header" Type="numeric" Precision="9" Scale="0" />
+    <Property Name="Company" Type="numeric" Precision="3" Scale="0" />
+    <Property Name="Berth" Type="nchar" MaxLength="7" />
+    <Property Name="Vessel" Type="nchar" MaxLength="15" />
+    <Property Name="OtherHeader" Type="numeric" Precision="9" Scale="0" />
+    <Property Name="OtherDate" Type="datetime" />
+    <Property Name="AddedUser" Type="nchar" MaxLength="20" />
+    <Property Name="AddedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="WorkDetails">
+    <Key>
+      <PropertyRef Name="DetlCounter" />
+    </Key>
+    <Property Name="DetlCounter" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DateOfWork" Type="datetime" />
+    <Property Name="Header" Type="numeric" Precision="9" Scale="0" />
+    <Property Name="Seq" Type="int" />
+    <Property Name="CardNo" Type="numeric" Precision="9" Scale="0" />
+    <Property Name="CheckIn" Type="nchar" MaxLength="1" />
+    <Property Name="CheckInTime" Type="datetime" />
+    <Property Name="CheckOut" Type="nchar" MaxLength="1" />
+    <Property Name="CheckOutTime" Type="datetime" />
+    <Property Name="DetlComment" Type="nchar" MaxLength="250" />
+    <Property Name="AddedDate" Type="datetime" />
+    <Property Name="AddedUser" Type="nchar" MaxLength="20" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="UpdateUser" Type="nchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="WorkHeader">
+    <Key>
+      <PropertyRef Name="CounterId" />
+    </Key>
+    <Property Name="CounterId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DateWorked" Type="datetime" />
+    <Property Name="Header" Type="numeric" Precision="9" Scale="0" />
+    <Property Name="Company" Type="numeric" Precision="3" Scale="0" />
+    <Property Name="Berth" Type="nchar" MaxLength="7" />
+    <Property Name="Vessel" Type="nchar" MaxLength="15" />
+    <Property Name="CheckIn" Type="nchar" MaxLength="1" Nullable="false" />
+    <Property Name="CheckInTime" Type="datetime" />
+    <Property Name="CheckOut" Type="nchar" MaxLength="1" />
+    <Property Name="CheckOutTime" Type="datetime" />
+    <Property Name="Description" Type="nvarchar" MaxLength="8" />
+    <Property Name="Comment" Type="nchar" MaxLength="18" />
+    <Property Name="AddedDate" Type="datetime" />
+    <Property Name="AddedUser" Type="nchar" MaxLength="20" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="UpdateUser" Type="nchar" MaxLength="20" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ILAAA.dbo.absvwMemberDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="absvwMemberDetails">
+    <Key>
+      <PropertyRef Name="CardNo" />
+    </Key>
+    <Property Name="CardNo" Type="numeric" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="20" />
+    <Property Name="MI" Type="nchar" MaxLength="1" />
+    <Property Name="FirstName" Type="varchar" MaxLength="20" />
+    <Property Name="DateBirth" Type="datetime" />
+    <Property Name="ClassCode" Type="nchar" MaxLength="3" />
+    <Property Name="Photo" Type="image" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ILAAA.dbo.absvwWorkDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="absvwWorkDetails">
+    <Key>
+      <PropertyRef Name="WorkDetailId" />
+    </Key>
+    <Property Name="WorkDetailId" Type="int" Nullable="false" />
+    <Property Name="ScheduleDateWorked" Type="datetime" Nullable="false" />
+    <Property Name="ScheduleCompany" Type="nvarchar" MaxLength="15" />
+    <Property Name="ScheduleCompanyName" Type="varchar" MaxLength="30" />
+    <Property Name="ScheduleBerth" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="ScheduleVessel" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="ScheduleShiftTime" Type="datetime" Nullable="false" />
+    <Property Name="ScheduleDisplay" Type="bit" Nullable="false" />
+    <Property Name="ScheduleCancelled" Type="bit" Nullable="false" />
+    <Property Name="ScheduleBerthQuestion" Type="bit" Nullable="false" />
+    <Property Name="HeaderHeader" Type="numeric" Precision="9" Scale="0" />
+    <Property Name="HeaderHeaderName" Type="nvarchar" MaxLength="43" />
+    <Property Name="HeaderCheckIn" Type="nchar" MaxLength="1" />
+    <Property Name="HeaderCheckInTime" Type="datetime" />
+    <Property Name="HeaderCheckOut" Type="nchar" MaxLength="1" />
+    <Property Name="HeaderCheckOutTime" Type="datetime" />
+    <Property Name="HeaderDescription" Type="nvarchar" MaxLength="8" />
+    <Property Name="HeaderComment" Type="nchar" MaxLength="18" />
+    <Property Name="HeaderWorkGangDescription" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="DetailSequence" Type="int" />
+    <Property Name="DetailCardNumber" Type="numeric" Precision="9" Scale="0" />
+    <Property Name="DetailMemberName" Type="nvarchar" MaxLength="43" />
+    <Property Name="DetailCheckIn" Type="nchar" MaxLength="1" />
+    <Property Name="DetailCheckInTime" Type="datetime" />
+    <Property Name="DetailCheckOut" Type="nchar" MaxLength="1" />
+    <Property Name="DetailCheckOutTime" Type="datetime" />
+    <Property Name="DetailComment" Type="nchar" MaxLength="250" />
+    <Property Name="ScheduleAddUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="ScheduleAddDateTime" Type="datetime" />
+    <Property Name="ScheduleUpdateUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="ScheduleUpdateDateTime" Type="datetime" />
+    <Property Name="HeaderAddedDate" Type="datetime" />
+    <Property Name="HeaderAddedUser" Type="nchar" MaxLength="20" />
+    <Property Name="HeaderUpdateDate" Type="datetime" />
+    <Property Name="HeaderUpdateUser" Type="nchar" MaxLength="20" />
+    <Property Name="DetailAddUser" Type="nchar" MaxLength="20" />
+    <Property Name="DetailAddDateTime" Type="datetime" />
+    <Property Name="DetailUpdateUser" Type="nchar" MaxLength="20" />
+    <Property Name="DetailUpdateDateTime" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ILAAA.dbo.absvwWorkSchedule' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="absvwWorkSchedule">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="Berth" Type="varchar" MaxLength="11" />
+    <Property Name="Vessel" Type="nchar" MaxLength="50" />
+    <Property Name="ShiftDateTime" Type="datetime" Nullable="false" />
+    <Property Name="Company" Type="nvarchar" MaxLength="15" />
+    <Property Name="Header" Type="varchar" MaxLength="8000" />
+    <Property Name="GangDescription" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Cancelled" Type="bit" Nullable="false" />
+    <Property Name="IsReplacementHeader" Type="int" Nullable="false" />
+    <Property Name="SetBack" Type="nchar" MaxLength="20" />
+    <Property Name="EmergencyGang" Type="bit" />
+  </EntityType>
+  <Association Name="FK__absBadge__CardNumber">
+    <End Role="InsuredMaster" Type="Self.InsuredMaster" Multiplicity="1" />
+    <End Role="absBadgeCardCrossRef" Type="Self.absBadgeCardCrossRef" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InsuredMaster">
+        <PropertyRef Name="CardNo" />
+      </Principal>
+      <Dependent Role="absBadgeCardCrossRef">
+        <PropertyRef Name="CardNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__absCallBack__cardNumber">
+    <End Role="InsuredMaster" Type="Self.InsuredMaster" Multiplicity="1" />
+    <End Role="absCallBack" Type="Self.absCallBack" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InsuredMaster">
+        <PropertyRef Name="CardNo" />
+      </Principal>
+      <Dependent Role="absCallBack">
+        <PropertyRef Name="cardNumberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__absDailySuspend__CardNumber">
+    <End Role="InsuredMaster" Type="Self.InsuredMaster" Multiplicity="1" />
+    <End Role="absDailySuspension" Type="Self.absDailySuspension" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InsuredMaster">
+        <PropertyRef Name="CardNo" />
+      </Principal>
+      <Dependent Role="absDailySuspension">
+        <PropertyRef Name="CardNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_absWorkDetail_absWorkHeaderId">
+    <End Role="absWorkHeader" Type="Self.absWorkHeader" Multiplicity="1" />
+    <End Role="absWorkDetail" Type="Self.absWorkDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="absWorkHeader">
+        <PropertyRef Name="CounterId" />
+      </Principal>
+      <Dependent Role="absWorkDetail">
+        <PropertyRef Name="absWorkHeaderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_absWorkHeader_absWorkGangDescription">
+    <End Role="absWorkGangDescription" Type="Self.absWorkGangDescription" Multiplicity="0..1" />
+    <End Role="absWorkHeader" Type="Self.absWorkHeader" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="absWorkGangDescription">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="absWorkHeader">
+        <PropertyRef Name="WorkGangDescriptionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_absWorkHeader_absWorkScheduleHeader">
+    <End Role="absWorkScheduleHeader" Type="Self.absWorkScheduleHeader" Multiplicity="0..1" />
+    <End Role="absWorkHeader" Type="Self.absWorkHeader" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="absWorkScheduleHeader">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="absWorkHeader">
+        <PropertyRef Name="WorkScheduleHeaderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_absWorkHeader_InsuredMaster">
+    <End Role="InsuredMaster" Type="Self.InsuredMaster" Multiplicity="0..1" />
+    <End Role="absWorkHeader" Type="Self.absWorkHeader" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InsuredMaster">
+        <PropertyRef Name="CardNo" />
+      </Principal>
+      <Dependent Role="absWorkHeader">
+        <PropertyRef Name="Header" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_absWorkHeader_ReplaceHeader">
+    <End Role="InsuredMaster" Type="Self.InsuredMaster" Multiplicity="0..1" />
+    <End Role="absWorkHeader" Type="Self.absWorkHeader" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InsuredMaster">
+        <PropertyRef Name="CardNo" />
+      </Principal>
+      <Dependent Role="absWorkHeader">
+        <PropertyRef Name="ReplaceHeaderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_absWorkScheduleHeader_absBerth">
+    <End Role="absBerth" Type="Self.absBerth" Multiplicity="1" />
+    <End Role="absWorkScheduleHeader" Type="Self.absWorkScheduleHeader" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="absBerth">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="absWorkScheduleHeader">
+        <PropertyRef Name="BerthId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_absWorkScheduleHeader_absVessel">
+    <End Role="absVessel" Type="Self.absVessel" Multiplicity="1" />
+    <End Role="absWorkScheduleHeader" Type="Self.absWorkScheduleHeader" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="absVessel">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="absWorkScheduleHeader">
+        <PropertyRef Name="VesselId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_absWorkScheduleHeader_CompanyMaster">
+    <End Role="CompanyMaster" Type="Self.CompanyMaster" Multiplicity="1" />
+    <End Role="absWorkScheduleHeader" Type="Self.absWorkScheduleHeader" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CompanyMaster">
+        <PropertyRef Name="CoNo" />
+      </Principal>
+      <Dependent Role="absWorkScheduleHeader">
+        <PropertyRef Name="CompanyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="absc_GetWorkScheduleByDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Date" Type="datetime" Mode="In" />
+  </Function>
+  <EntityContainer Name="ILAModelStoreContainer">
+    <EntitySet Name="absBadgeCardCrossRef" EntityType="Self.absBadgeCardCrossRef" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="absBerth" EntityType="Self.absBerth" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="absCallBack" EntityType="Self.absCallBack" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="absConfiguration" EntityType="Self.absConfiguration" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="absDailySuspension" EntityType="Self.absDailySuspension" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="absGangSchedule" EntityType="Self.absGangSchedule" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="absGPACredentials" EntityType="Self.absGPACredentials" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="absScheduleNote" EntityType="Self.absScheduleNote" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="absSecurity" EntityType="Self.absSecurity" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="absShiftTimes" EntityType="Self.absShiftTimes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="absVessel" EntityType="Self.absVessel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="absWorkDetail" EntityType="Self.absWorkDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="absWorkGangDescription" EntityType="Self.absWorkGangDescription" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="absWorkGangTemplate" EntityType="Self.absWorkGangTemplate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="absWorkHeader" EntityType="Self.absWorkHeader" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="absWorkScheduleHeader" EntityType="Self.absWorkScheduleHeader" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="absWorkScheduleLogins" EntityType="Self.absWorkScheduleLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CompanyMaster" EntityType="Self.CompanyMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IMEmergencyContact" EntityType="Self.IMEmergencyContact" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InsuredMaster" EntityType="Self.InsuredMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Notes" EntityType="Self.Notes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WorkDetails" EntityType="Self.WorkDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WorkHeader" EntityType="Self.WorkHeader" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TimeCardEntryErrorLog" EntityType="Self.TimeCardEntryErrorLog" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [TimeCardEntryErrorLog].[Cardno] AS [Cardno], 
+    [TimeCardEntryErrorLog].[DateofWork] AS [DateofWork], 
+    [TimeCardEntryErrorLog].[MsgNo] AS [MsgNo], 
+    [TimeCardEntryErrorLog].[MsgDetails] AS [MsgDetails], 
+    [TimeCardEntryErrorLog].[AnsYN] AS [AnsYN], 
+    [TimeCardEntryErrorLog].[Header] AS [Header], 
+    [TimeCardEntryErrorLog].[Company] AS [Company], 
+    [TimeCardEntryErrorLog].[Berth] AS [Berth], 
+    [TimeCardEntryErrorLog].[Vessel] AS [Vessel], 
+    [TimeCardEntryErrorLog].[OtherHeader] AS [OtherHeader], 
+    [TimeCardEntryErrorLog].[OtherDate] AS [OtherDate], 
+    [TimeCardEntryErrorLog].[AddedUser] AS [AddedUser], 
+    [TimeCardEntryErrorLog].[AddedDate] AS [AddedDate]
+    FROM [dbo].[TimeCardEntryErrorLog] AS [TimeCardEntryErrorLog]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="absvwMemberDetails" EntityType="Self.absvwMemberDetails" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [absvwMemberDetails].[CardNo] AS [CardNo], 
+    [absvwMemberDetails].[LastName] AS [LastName], 
+    [absvwMemberDetails].[MI] AS [MI], 
+    [absvwMemberDetails].[FirstName] AS [FirstName], 
+    [absvwMemberDetails].[DateBirth] AS [DateBirth], 
+    [absvwMemberDetails].[ClassCode] AS [ClassCode], 
+    [absvwMemberDetails].[Photo] AS [Photo]
+    FROM [dbo].[absvwMemberDetails] AS [absvwMemberDetails]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="absvwWorkDetails" EntityType="Self.absvwWorkDetails" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [absvwWorkDetails].[WorkDetailId] AS [WorkDetailId], 
+    [absvwWorkDetails].[ScheduleDateWorked] AS [ScheduleDateWorked], 
+    [absvwWorkDetails].[ScheduleCompany] AS [ScheduleCompany], 
+    [absvwWorkDetails].[ScheduleCompanyName] AS [ScheduleCompanyName], 
+    [absvwWorkDetails].[ScheduleBerth] AS [ScheduleBerth], 
+    [absvwWorkDetails].[ScheduleVessel] AS [ScheduleVessel], 
+    [absvwWorkDetails].[ScheduleShiftTime] AS [ScheduleShiftTime], 
+    [absvwWorkDetails].[ScheduleDisplay] AS [ScheduleDisplay], 
+    [absvwWorkDetails].[ScheduleCancelled] AS [ScheduleCancelled], 
+    [absvwWorkDetails].[ScheduleBerthQuestion] AS [ScheduleBerthQuestion], 
+    [absvwWorkDetails].[HeaderHeader] AS [HeaderHeader], 
+    [absvwWorkDetails].[HeaderHeaderName] AS [HeaderHeaderName], 
+    [absvwWorkDetails].[HeaderCheckIn] AS [HeaderCheckIn], 
+    [absvwWorkDetails].[HeaderCheckInTime] AS [HeaderCheckInTime], 
+    [absvwWorkDetails].[HeaderCheckOut] AS [HeaderCheckOut], 
+    [absvwWorkDetails].[HeaderCheckOutTime] AS [HeaderCheckOutTime], 
+    [absvwWorkDetails].[HeaderDescription] AS [HeaderDescription], 
+    [absvwWorkDetails].[HeaderComment] AS [HeaderComment], 
+    [absvwWorkDetails].[HeaderWorkGangDescription] AS [HeaderWorkGangDescription], 
+    [absvwWorkDetails].[DetailSequence] AS [DetailSequence], 
+    [absvwWorkDetails].[DetailCardNumber] AS [DetailCardNumber], 
+    [absvwWorkDetails].[DetailMemberName] AS [DetailMemberName], 
+    [absvwWorkDetails].[DetailCheckIn] AS [DetailCheckIn], 
+    [absvwWorkDetails].[DetailCheckInTime] AS [DetailCheckInTime], 
+    [absvwWorkDetails].[DetailCheckOut] AS [DetailCheckOut], 
+    [absvwWorkDetails].[DetailCheckOutTime] AS [DetailCheckOutTime], 
+    [absvwWorkDetails].[DetailComment] AS [DetailComment], 
+    [absvwWorkDetails].[ScheduleAddUser] AS [ScheduleAddUser], 
+    [absvwWorkDetails].[ScheduleAddDateTime] AS [ScheduleAddDateTime], 
+    [absvwWorkDetails].[ScheduleUpdateUser] AS [ScheduleUpdateUser], 
+    [absvwWorkDetails].[ScheduleUpdateDateTime] AS [ScheduleUpdateDateTime], 
+    [absvwWorkDetails].[HeaderAddedDate] AS [HeaderAddedDate], 
+    [absvwWorkDetails].[HeaderAddedUser] AS [HeaderAddedUser], 
+    [absvwWorkDetails].[HeaderUpdateDate] AS [HeaderUpdateDate], 
+    [absvwWorkDetails].[HeaderUpdateUser] AS [HeaderUpdateUser], 
+    [absvwWorkDetails].[DetailAddUser] AS [DetailAddUser], 
+    [absvwWorkDetails].[DetailAddDateTime] AS [DetailAddDateTime], 
+    [absvwWorkDetails].[DetailUpdateUser] AS [DetailUpdateUser], 
+    [absvwWorkDetails].[DetailUpdateDateTime] AS [DetailUpdateDateTime]
+    FROM [dbo].[absvwWorkDetails] AS [absvwWorkDetails]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="absvwWorkSchedule" EntityType="Self.absvwWorkSchedule" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [absvwWorkSchedule].[id] AS [id], 
+    [absvwWorkSchedule].[Berth] AS [Berth], 
+    [absvwWorkSchedule].[Vessel] AS [Vessel], 
+    [absvwWorkSchedule].[ShiftDateTime] AS [ShiftDateTime], 
+    [absvwWorkSchedule].[Company] AS [Company], 
+    [absvwWorkSchedule].[Header] AS [Header], 
+    [absvwWorkSchedule].[GangDescription] AS [GangDescription], 
+    [absvwWorkSchedule].[Cancelled] AS [Cancelled], 
+    [absvwWorkSchedule].[IsReplacementHeader] AS [IsReplacementHeader], 
+    [absvwWorkSchedule].[SetBack] AS [SetBack], 
+    [absvwWorkSchedule].[EmergencyGang] AS [EmergencyGang]
+    FROM [dbo].[absvwWorkSchedule] AS [absvwWorkSchedule]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__absBadge__CardNumber" Association="Self.FK__absBadge__CardNumber">
+      <End Role="InsuredMaster" EntitySet="InsuredMaster" />
+      <End Role="absBadgeCardCrossRef" EntitySet="absBadgeCardCrossRef" />
+    </AssociationSet>
+    <AssociationSet Name="FK__absCallBack__cardNumber" Association="Self.FK__absCallBack__cardNumber">
+      <End Role="InsuredMaster" EntitySet="InsuredMaster" />
+      <End Role="absCallBack" EntitySet="absCallBack" />
+    </AssociationSet>
+    <AssociationSet Name="FK__absDailySuspend__CardNumber" Association="Self.FK__absDailySuspend__CardNumber">
+      <End Role="InsuredMaster" EntitySet="InsuredMaster" />
+      <End Role="absDailySuspension" EntitySet="absDailySuspension" />
+    </AssociationSet>
+    <AssociationSet Name="FK_absWorkDetail_absWorkHeaderId" Association="Self.FK_absWorkDetail_absWorkHeaderId">
+      <End Role="absWorkHeader" EntitySet="absWorkHeader" />
+      <End Role="absWorkDetail" EntitySet="absWorkDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_absWorkHeader_absWorkGangDescription" Association="Self.FK_absWorkHeader_absWorkGangDescription">
+      <End Role="absWorkGangDescription" EntitySet="absWorkGangDescription" />
+      <End Role="absWorkHeader" EntitySet="absWorkHeader" />
+    </AssociationSet>
+    <AssociationSet Name="FK_absWorkHeader_absWorkScheduleHeader" Association="Self.FK_absWorkHeader_absWorkScheduleHeader">
+      <End Role="absWorkScheduleHeader" EntitySet="absWorkScheduleHeader" />
+      <End Role="absWorkHeader" EntitySet="absWorkHeader" />
+    </AssociationSet>
+    <AssociationSet Name="FK_absWorkHeader_InsuredMaster" Association="Self.FK_absWorkHeader_InsuredMaster">
+      <End Role="InsuredMaster" EntitySet="InsuredMaster" />
+      <End Role="absWorkHeader" EntitySet="absWorkHeader" />
+    </AssociationSet>
+    <AssociationSet Name="FK_absWorkHeader_ReplaceHeader" Association="Self.FK_absWorkHeader_ReplaceHeader">
+      <End Role="InsuredMaster" EntitySet="InsuredMaster" />
+      <End Role="absWorkHeader" EntitySet="absWorkHeader" />
+    </AssociationSet>
+    <AssociationSet Name="FK_absWorkScheduleHeader_absBerth" Association="Self.FK_absWorkScheduleHeader_absBerth">
+      <End Role="absBerth" EntitySet="absBerth" />
+      <End Role="absWorkScheduleHeader" EntitySet="absWorkScheduleHeader" />
+    </AssociationSet>
+    <AssociationSet Name="FK_absWorkScheduleHeader_absVessel" Association="Self.FK_absWorkScheduleHeader_absVessel">
+      <End Role="absVessel" EntitySet="absVessel" />
+      <End Role="absWorkScheduleHeader" EntitySet="absWorkScheduleHeader" />
+    </AssociationSet>
+    <AssociationSet Name="FK_absWorkScheduleHeader_CompanyMaster" Association="Self.FK_absWorkScheduleHeader_CompanyMaster">
+      <End Role="CompanyMaster" EntitySet="CompanyMaster" />
+      <End Role="absWorkScheduleHeader" EntitySet="absWorkScheduleHeader" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

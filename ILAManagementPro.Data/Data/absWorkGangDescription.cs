@@ -1,29 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-
 namespace ILAManagementPro.Data.Data
 {
-    public class absWorkGangDescription
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
+
+    [Table("absWorkGangDescription")]
+    public partial class absWorkGangDescription
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public absWorkGangDescription()
         {
-            this.absWorkHeaders = new HashSet<absWorkHeader>();
+            absWorkHeader = new HashSet<absWorkHeader>();
         }
 
-        public int Id { get; set; }
+        public int id { get; set; }
 
-        public string Description { get; set; }
+        [Required]
+        [StringLength(50)]
+        public string WorkGangDescription { get; set; }
 
+        public bool? DriverGang { get; set; }
+
+        [StringLength(50)]
         public string AddUser { get; set; }
 
         public DateTime? AddDateTime { get; set; }
 
+        [StringLength(50)]
         public string UpdateUser { get; set; }
 
         public DateTime? UpdateDateTime { get; set; }
 
-        public bool? DriverGang { get; set; }
-
-        public virtual ICollection<absWorkHeader> absWorkHeaders { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<absWorkHeader> absWorkHeader { get; set; }
     }
 }

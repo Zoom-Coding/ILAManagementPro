@@ -31,7 +31,7 @@ namespace ILAManagementPro.Data.Repositories
             {
                 using (ILAEntities ilaEntities = new ILAEntities())
                 {
-                    absShiftTime shift = ilaEntities.absShiftTimes.Where<absShiftTime>((Expression<Func<absShiftTime, bool>>)(b => b.Id == ID)).FirstOrDefault<absShiftTime>();
+                    absShiftTime shift = ilaEntities.absShiftTimes.Where<absShiftTime>((Expression<Func<absShiftTime, bool>>)(b => b.id == ID)).FirstOrDefault<absShiftTime>();
                     if (shift != null)
                         shiftEntity = this.BuildEntity(shift);
                 }
@@ -50,7 +50,7 @@ namespace ILAManagementPro.Data.Repositories
                 return;
             using (ILAEntities ilaEntities = new ILAEntities())
             {
-                absShiftTime absShiftTime = ilaEntities.absShiftTimes.Where<absShiftTime>((Expression<Func<absShiftTime, bool>>)(b => b.Id == ID)).FirstOrDefault<absShiftTime>();
+                absShiftTime absShiftTime = ilaEntities.absShiftTimes.Where<absShiftTime>((Expression<Func<absShiftTime, bool>>)(b => b.id == ID)).FirstOrDefault<absShiftTime>();
                 if (absShiftTime != null)
                 {
                     absShiftTime.DisplayTime = entity.DisplayTime.ToUpper().Trim();
@@ -136,7 +136,7 @@ namespace ILAManagementPro.Data.Repositories
                 else
                 {
                     flag = true;
-                    num = absShiftTime.Id;
+                    num = absShiftTime.id;
                 }
             }
             if (!flag)
@@ -156,7 +156,7 @@ namespace ILAManagementPro.Data.Repositories
                 return;
             using (ILAEntities ilaEntities = new ILAEntities())
             {
-                absShiftTime entity1 = ilaEntities.absShiftTimes.Where<absShiftTime>((Expression<Func<absShiftTime, bool>>)(b => b.Id == ID)).FirstOrDefault<absShiftTime>();
+                absShiftTime entity1 = ilaEntities.absShiftTimes.Where<absShiftTime>((Expression<Func<absShiftTime, bool>>)(b => b.id == ID)).FirstOrDefault<absShiftTime>();
                 if (entity1 != null)
                 {
                     try
@@ -191,7 +191,7 @@ namespace ILAManagementPro.Data.Repositories
         private ShiftEntity BuildEntity(absShiftTime shift)
         {
             ShiftEntity shiftEntity = new ShiftEntity();
-            shiftEntity.Id = shift.Id.ToString();
+            shiftEntity.Id = shift.id.ToString();
             shiftEntity.DisplayTime = shift.DisplayTime.Trim();
             shiftEntity.MilitaryTime = shift.MilitaryTime.Trim();
             shiftEntity.PickTime = shift.PickTime.Trim();

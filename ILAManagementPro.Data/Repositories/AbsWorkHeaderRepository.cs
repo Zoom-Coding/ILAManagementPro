@@ -425,14 +425,14 @@ namespace ILAManagementPro.Data.Repositories
             WorkScheduleHeaderEntity scheduleHeaderEntity3 = scheduleHeaderEntity1;
             BerthEntity berthEntity1 = new BerthEntity();
             berthEntity1.Id = Header.absWorkScheduleHeader.BerthId.ToString();
-            berthEntity1.ShortBerthName = Header.absWorkScheduleHeader.Berth.BerthShortName;
+            berthEntity1.ShortBerthName = Header.absWorkScheduleHeader.absBerth.BerthShortName;
             BerthEntity berthEntity2 = berthEntity1;
             scheduleHeaderEntity3.Berth = berthEntity2;
             WorkScheduleHeaderEntity scheduleHeaderEntity4 = scheduleHeaderEntity1;
             VesselEntity vesselEntity1 = new VesselEntity();
             vesselEntity1.Id = Header.absWorkScheduleHeader.VesselId.ToString();
-            vesselEntity1.VesselName = Header.absWorkScheduleHeader.Vessel.VesselName;
-            vesselEntity1.LLoydsNumber = Header.absWorkScheduleHeader.Vessel.LLoydsId;
+            vesselEntity1.VesselName = Header.absWorkScheduleHeader.absVessel.VesselName;
+            vesselEntity1.LLoydsNumber = Header.absWorkScheduleHeader.absVessel.LLoydsId;
             VesselEntity vesselEntity2 = vesselEntity1;
             scheduleHeaderEntity4.Vessel = vesselEntity2;
             scheduleHeaderEntity1.ShiftTime = (DateTime)Header.absWorkScheduleHeader.ShiftTime;

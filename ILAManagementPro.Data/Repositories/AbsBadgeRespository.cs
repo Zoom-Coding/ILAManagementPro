@@ -31,7 +31,7 @@ namespace ILAManagementPro.Data.Repositories
             {
                 using (ILAEntities ilaEntities = new ILAEntities())
                 {
-                    absBadgeCardCrossRef badge = ilaEntities.absBadgeCardCrossRefs.Where<absBadgeCardCrossRef>((Expression<Func<absBadgeCardCrossRef, bool>>)(b => b.Id == ID)).FirstOrDefault<absBadgeCardCrossRef>();
+                    absBadgeCardCrossRef badge = ilaEntities.absBadgeCardCrossRefs.Where<absBadgeCardCrossRef>((Expression<Func<absBadgeCardCrossRef, bool>>)(b => b.id == ID)).FirstOrDefault<absBadgeCardCrossRef>();
                     if (badge != null)
                         badgeEntity = this.BuildEntity(badge);
                 }
@@ -64,7 +64,7 @@ namespace ILAManagementPro.Data.Repositories
                 return;
             using (ILAEntities ilaEntities = new ILAEntities())
             {
-                absBadgeCardCrossRef badgeCardCrossRef = ilaEntities.absBadgeCardCrossRefs.Where<absBadgeCardCrossRef>((Expression<Func<absBadgeCardCrossRef, bool>>)(b => b.Id == ID)).FirstOrDefault<absBadgeCardCrossRef>();
+                absBadgeCardCrossRef badgeCardCrossRef = ilaEntities.absBadgeCardCrossRefs.Where<absBadgeCardCrossRef>((Expression<Func<absBadgeCardCrossRef, bool>>)(b => b.id == ID)).FirstOrDefault<absBadgeCardCrossRef>();
                 if (badgeCardCrossRef != null)
                 {
                     badgeCardCrossRef.BadgeNumber = entity.BadgeNumber;
@@ -150,7 +150,7 @@ namespace ILAManagementPro.Data.Repositories
                 else
                 {
                     flag = true;
-                    num = badgeCardCrossRef.Id;
+                    num = badgeCardCrossRef.id;
                 }
             }
             if (!flag)
@@ -172,7 +172,7 @@ namespace ILAManagementPro.Data.Repositories
                 return;
             using (ILAEntities ilaEntities = new ILAEntities())
             {
-                absBadgeCardCrossRef entity1 = ilaEntities.absBadgeCardCrossRefs.Where<absBadgeCardCrossRef>((Expression<Func<absBadgeCardCrossRef, bool>>)(b => b.Id == ID)).FirstOrDefault<absBadgeCardCrossRef>();
+                absBadgeCardCrossRef entity1 = ilaEntities.absBadgeCardCrossRefs.Where<absBadgeCardCrossRef>((Expression<Func<absBadgeCardCrossRef, bool>>)(b => b.id == ID)).FirstOrDefault<absBadgeCardCrossRef>();
                 if (entity1 != null)
                 {
                     try
@@ -207,7 +207,7 @@ namespace ILAManagementPro.Data.Repositories
         private BadgeEntity BuildEntity(absBadgeCardCrossRef badge)
         {
             BadgeEntity badgeEntity = new BadgeEntity();
-            badgeEntity.Id = badge.Id.ToString();
+            badgeEntity.Id = badge.id.ToString();
             badgeEntity.CardNumber = (Decimal)badge.CardNumber;
             badgeEntity.BadgeNumber = badge.BadgeNumber;
             return badgeEntity;

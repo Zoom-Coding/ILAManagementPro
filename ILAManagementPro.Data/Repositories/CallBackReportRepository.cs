@@ -22,7 +22,7 @@ namespace ILAManagementPro.Data.Repositories
             using (ILAEntities ilaEntities = new ILAEntities())
             {
                 DbSet<absCallBack> absCallBacks = ilaEntities.absCallBacks;
-                Expression<Func<absCallBack, bool>> predicate = (Expression<Func<absCallBack, bool>>)(a => a.Active);
+                Expression<Func<absCallBack, bool>> predicate = (Expression<Func<absCallBack, bool>>)(a => a.active);
                 foreach (absCallBack CallBack in (IEnumerable<absCallBack>)absCallBacks.Where<absCallBack>(predicate))
                     source.Add(this.BuildEntity(CallBack));
             }
@@ -52,14 +52,14 @@ namespace ILAManagementPro.Data.Repositories
         private CallBackReportEntity BuildEntity(absCallBack CallBack)
         {
             CallBackReportEntity backReportEntity = new CallBackReportEntity();
-            backReportEntity.Id = CallBack.Id.ToString();
+            backReportEntity.Id = CallBack.id.ToString();
             backReportEntity.Name = this.BuildHeaderDisplayName(CallBack.InsuredMaster.FirstName, CallBack.InsuredMaster.LastName);
             backReportEntity.SSN = this.GetSSNLastFour(CallBack.InsuredMaster.SSNo);
-            backReportEntity.CardNumber = CallBack.CardNumberId.ToString();
+            backReportEntity.CardNumber = CallBack.cardNumberId.ToString();
             backReportEntity.SenClass = CallBack.InsuredMaster.ClassCode;
-            backReportEntity.Telephone = this.EncodePhoneNumber(CallBack.PhoneNumber.Trim());
-            backReportEntity.Date = CallBack.CallBackDateTime.ToString("MM/dd/yyyy");
-            backReportEntity.Time = CallBack.CallBackDateTime.ToString("h:mm tt");
+            backReportEntity.Telephone = this.EncodePhoneNumber(CallBack.phoneNumber.Trim());
+            backReportEntity.Date = CallBack.callBackDateTime.ToString("MM/dd/yyyy");
+            backReportEntity.Time = CallBack.callBackDateTime.ToString("h:mm tt");
             return backReportEntity;
         }
 

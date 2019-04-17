@@ -33,7 +33,7 @@ namespace ILAManagementPro.Data.Repositories
             {
                 using (ILAEntities ilaEntities = new ILAEntities())
                 {
-                    absScheduleNote note = ilaEntities.absScheduleNotes.Where<absScheduleNote>((Expression<Func<absScheduleNote, bool>>)(b => b.Id == ID)).FirstOrDefault<absScheduleNote>();
+                    absScheduleNote note = ilaEntities.absScheduleNotes.Where<absScheduleNote>((Expression<Func<absScheduleNote, bool>>)(b => b.id == ID)).FirstOrDefault<absScheduleNote>();
                     if (note != null)
                         noteEntity = this.BuildEntity(note);
                 }
@@ -47,7 +47,7 @@ namespace ILAManagementPro.Data.Repositories
             using (ILAEntities ilaEntities = new ILAEntities())
             {
                 DbSet<absScheduleNote> absScheduleNotes = ilaEntities.absScheduleNotes;
-                Expression<Func<absScheduleNote, bool>> predicate = (Expression<Func<absScheduleNote, bool>>)(b => b.BeginDate >= StartDate && b.BeginDate <= EndDate);
+                Expression<Func<absScheduleNote, bool>> predicate = (Expression<Func<absScheduleNote, bool>>)(b => b.beginDate >= StartDate && b.beginDate <= EndDate);
                 foreach (absScheduleNote note in (IEnumerable<absScheduleNote>)absScheduleNotes.Where<absScheduleNote>(predicate))
                     noteEntityList.Add(this.BuildEntity(note));
             }
@@ -65,17 +65,17 @@ namespace ILAManagementPro.Data.Repositories
                 return;
             using (ILAEntities ilaEntities = new ILAEntities())
             {
-                absScheduleNote absScheduleNote1 = ilaEntities.absScheduleNotes.Where<absScheduleNote>((Expression<Func<absScheduleNote, bool>>)(b => b.Id == ID)).FirstOrDefault<absScheduleNote>();
+                absScheduleNote absScheduleNote1 = ilaEntities.absScheduleNotes.Where<absScheduleNote>((Expression<Func<absScheduleNote, bool>>)(b => b.id == ID)).FirstOrDefault<absScheduleNote>();
                 if (absScheduleNote1 != null)
                 {
-                    absScheduleNote1.Note = entity.Content.Trim();
+                    absScheduleNote1.note  = entity.Content.Trim();
                     DateTime? nullable;
                     if (((DateTime?)entity.ScheduleBeginDate).HasValue)
                     {
                         absScheduleNote absScheduleNote2 = absScheduleNote1;
                         nullable = (DateTime?)entity.ScheduleBeginDate;
                         DateTime dateTime = nullable.Value;
-                        absScheduleNote2.BeginDate = dateTime;
+                        absScheduleNote2.beginDate = dateTime;
                     }
                     nullable = (DateTime?)entity.ScheduleEndDate;
                     if (nullable.HasValue)
@@ -83,7 +83,7 @@ namespace ILAManagementPro.Data.Repositories
                         absScheduleNote absScheduleNote2 = absScheduleNote1;
                         nullable = (DateTime?)entity.ScheduleEndDate;
                         DateTime dateTime = nullable.Value;
-                        absScheduleNote2.EndDate = dateTime;
+                        absScheduleNote2.endDate = dateTime;
                     }
                     if (!string.IsNullOrEmpty(entity.User))
                         absScheduleNote1.UpdateUser = entity.User.ToString();
@@ -125,11 +125,11 @@ namespace ILAManagementPro.Data.Repositories
             using (ILAEntities ilaEntities = new ILAEntities())
             {
                 absScheduleNote entity1 = new absScheduleNote();
-                entity1.Note = entity.Content.Trim();
+                entity1.note = entity.Content.Trim();
                 if (((DateTime?)entity.ScheduleBeginDate).HasValue)
-                    entity1.BeginDate = ((DateTime?)entity.ScheduleBeginDate).Value;
+                    entity1.beginDate = ((DateTime?)entity.ScheduleBeginDate).Value;
                 if (((DateTime?)entity.ScheduleEndDate).HasValue)
-                    entity1.EndDate = ((DateTime?)entity.ScheduleEndDate).Value;
+                    entity1.endDate = ((DateTime?)entity.ScheduleEndDate).Value;
                 if (!string.IsNullOrEmpty(entity.User))
                     entity1.AddUser = entity.User.ToString();
                 entity1.AddDateTime = new DateTime?(DateTime.Now);
@@ -172,7 +172,7 @@ namespace ILAManagementPro.Data.Repositories
                 return;
             using (ILAEntities ilaEntities = new ILAEntities())
             {
-                absScheduleNote entity1 = ilaEntities.absScheduleNotes.Where<absScheduleNote>((Expression<Func<absScheduleNote, bool>>)(b => b.Id == ID)).FirstOrDefault<absScheduleNote>();
+                absScheduleNote entity1 = ilaEntities.absScheduleNotes.Where<absScheduleNote>((Expression<Func<absScheduleNote, bool>>)(b => b.id == ID)).FirstOrDefault<absScheduleNote>();
                 if (entity1 != null)
                 {
                     try
@@ -207,11 +207,11 @@ namespace ILAManagementPro.Data.Repositories
         private NoteEntity BuildEntity(absScheduleNote note)
         {
             NoteEntity noteEntity = new NoteEntity();
-            noteEntity.Id = note.Id.ToString();
-            if (!string.IsNullOrEmpty(note.Note))
-                noteEntity.Content = note.Note.Trim();
-            noteEntity.ScheduleBeginDate = (DateTime?)new DateTime?(note.BeginDate);
-            noteEntity.ScheduleEndDate = (DateTime?)new DateTime?(note.EndDate);
+            noteEntity.Id = note.id.ToString();
+            if (!string.IsNullOrEmpty(note.note))
+                noteEntity.Content = note.note.Trim();
+            noteEntity.ScheduleBeginDate = (DateTime?)new DateTime?(note.beginDate);
+            noteEntity.ScheduleEndDate = (DateTime?)new DateTime?(note.endDate);
             return noteEntity;
         }
     }

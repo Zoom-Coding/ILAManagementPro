@@ -28,7 +28,7 @@ namespace ILAManagementPro.Data.Repositories
             ConfigurationEntity configurationEntity = (ConfigurationEntity)null;
             using (ILAEntities ilaEntities = new ILAEntities())
             {
-                absConfiguration config = ilaEntities.absConfigurations.Where<absConfiguration>((Expression<Func<absConfiguration, bool>>)(c => c.KeyValue.Trim() == id.Trim())).FirstOrDefault<absConfiguration>();
+                absConfiguration config = ilaEntities.absConfigurations.Where<absConfiguration>((Expression<Func<absConfiguration, bool>>)(c => c.keyValue.Trim() == id.Trim())).FirstOrDefault<absConfiguration>();
                 if (config != null)
                     configurationEntity = this.BuildEntity(config);
             }
@@ -40,7 +40,7 @@ namespace ILAManagementPro.Data.Repositories
             StringBuilder stringBuilder = new StringBuilder();
             using (ILAEntities ilaEntities = new ILAEntities())
             {
-                absConfiguration absConfiguration = ilaEntities.absConfigurations.Where<absConfiguration>((Expression<Func<absConfiguration, bool>>)(c => c.KeyValue.Trim() == entity.Id.Trim())).FirstOrDefault<absConfiguration>();
+                absConfiguration absConfiguration = ilaEntities.absConfigurations.Where<absConfiguration>((Expression<Func<absConfiguration, bool>>)(c => c.keyValue.Trim() == entity.Id.Trim())).FirstOrDefault<absConfiguration>();
                 if (absConfiguration == null)
                     return;
                 absConfiguration.propValue = entity.PropertyValue.Trim();
@@ -87,11 +87,11 @@ namespace ILAManagementPro.Data.Repositories
             string str = (string)null;
             using (ILAEntities ilaEntities = new ILAEntities())
             {
-                absConfiguration absConfiguration = ilaEntities.absConfigurations.Where<absConfiguration>((Expression<Func<absConfiguration, bool>>)(c => c.KeyValue.Trim() == entity.Id.Trim())).FirstOrDefault<absConfiguration>();
+                absConfiguration absConfiguration = ilaEntities.absConfigurations.Where<absConfiguration>((Expression<Func<absConfiguration, bool>>)(c => c.keyValue.Trim() == entity.Id.Trim())).FirstOrDefault<absConfiguration>();
                 if (absConfiguration == null)
                 {
                     absConfiguration entity1 = new absConfiguration();
-                    entity1.KeyValue = entity.Id.Trim();
+                    entity1.keyValue = entity.Id.Trim();
                     entity1.propValue = entity.PropertyValue.Trim();
                     if (!string.IsNullOrEmpty(entity.User))
                         entity1.AddUser = entity.User.ToString();
@@ -131,7 +131,7 @@ namespace ILAManagementPro.Data.Repositories
                 else
                 {
                     flag = true;
-                    str = absConfiguration.KeyValue;
+                    str = absConfiguration.keyValue;
                 }
             }
             if (!flag)
@@ -145,7 +145,7 @@ namespace ILAManagementPro.Data.Repositories
             StringBuilder stringBuilder = new StringBuilder();
             using (ILAEntities ilaEntities = new ILAEntities())
             {
-                absConfiguration entity1 = ilaEntities.absConfigurations.Where<absConfiguration>((Expression<Func<absConfiguration, bool>>)(c => c.KeyValue.Trim() == entity.Id.Trim())).FirstOrDefault<absConfiguration>();
+                absConfiguration entity1 = ilaEntities.absConfigurations.Where<absConfiguration>((Expression<Func<absConfiguration, bool>>)(c => c.keyValue.Trim() == entity.Id.Trim())).FirstOrDefault<absConfiguration>();
                 if (entity1 == null)
                     return;
                 try
@@ -185,7 +185,7 @@ namespace ILAManagementPro.Data.Repositories
         private ConfigurationEntity BuildEntity(absConfiguration config)
         {
             ConfigurationEntity configurationEntity = new ConfigurationEntity();
-            configurationEntity.Id = config.KeyValue.Trim();
+            configurationEntity.Id = config.keyValue.Trim();
             configurationEntity.PropertyValue = config.propValue.Trim();
             return configurationEntity;
         }

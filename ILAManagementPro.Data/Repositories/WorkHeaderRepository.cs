@@ -8,10 +8,6 @@ using System.Data.Entity.Validation;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
-using WorkHeaderEntity = ILAManagementPro.Models.WorkHeaderEntity;
-using DbWorkHeader = ILAManagementPro.Data.Data.WorkHeader;
-using WorkDetailEntity = ILAManagementPro.Models.WorkDetailEntity;
-using DbWorkDetail = ILAManagementPro.Data.Data.WorkDetail;
 
 namespace ILAManagementPro.Data.Repositories
 {
@@ -22,9 +18,9 @@ namespace ILAManagementPro.Data.Repositories
             List<WorkHeaderEntity> source = new List<WorkHeaderEntity>();
             using (ILAEntities ilaEntities = new ILAEntities())
             {
-                foreach (DbWorkHeader workHeader in (IEnumerable<DbWorkHeader>)ilaEntities.WorkHeaders)
+                foreach (WorkHeader workHeader in (IEnumerable<WorkHeader>)ilaEntities.WorkHeaders)
                 {
-                    DbWorkHeader v = workHeader;
+                    WorkHeader v = workHeader;
                     WorkHeaderEntity tempHeader = this.BuildHeaderEntity(v);
                     if (v.Company.HasValue)
                     {
@@ -33,9 +29,9 @@ namespace ILAManagementPro.Data.Repositories
                             tempHeader.Company = this.BuildCompanyEntity(company);
                     }
                     tempHeader.WorkDetails = new List<WorkDetailEntity>();
-                    DbSet<DbWorkDetail> workDetails = ilaEntities.WorkDetails;
-                    Expression<Func<DbWorkDetail, bool>> predicate = (Expression<Func<DbWorkDetail, bool>>)(c => c.DateOfWork == tempHeader.DateWorked && c.Header == v.Header);
-                    foreach (DbWorkDetail wd in (IEnumerable<DbWorkDetail>)workDetails.Where<DbWorkDetail>(predicate))
+                    DbSet<WorkDetail> workDetails = ilaEntities.WorkDetails;
+                    Expression<Func<WorkDetail, bool>> predicate = (Expression<Func<WorkDetail, bool>>)(c => c.DateOfWork == tempHeader.DateWorked && c.Header == v.Header);
+                    foreach (WorkDetail wd in (IEnumerable<WorkDetail>)workDetails.Where<WorkDetail>(predicate))
                         ((List<WorkDetailEntity>)tempHeader.WorkDetails).Add(this.BuildDetailEntity(wd));
                     source.Add(tempHeader);
                 }
@@ -48,11 +44,11 @@ namespace ILAManagementPro.Data.Repositories
             List<WorkHeaderEntity> source = new List<WorkHeaderEntity>();
             using (ILAEntities ilaEntities = new ILAEntities())
             {
-                DbSet<DbWorkHeader> workHeaders = ilaEntities.WorkHeaders;
-                Expression<Func<DbWorkHeader, bool>> predicate1 = (Expression<Func<DbWorkHeader, bool>>)(c => c.DateWorked == (DateTime?)dateWorked);
-                foreach (DbWorkHeader workHeader in (IEnumerable<DbWorkHeader>)workHeaders.Where<DbWorkHeader>(predicate1))
+                DbSet<WorkHeader> workHeaders = ilaEntities.WorkHeaders;
+                Expression<Func<WorkHeader, bool>> predicate1 = (Expression<Func<WorkHeader, bool>>)(c => c.DateWorked == (DateTime?)dateWorked);
+                foreach (WorkHeader workHeader in (IEnumerable<WorkHeader>)workHeaders.Where<WorkHeader>(predicate1))
                 {
-                    DbWorkHeader v = workHeader;
+                    WorkHeader v = workHeader;
                     WorkHeaderEntity tempHeader = this.BuildHeaderEntity(v);
                     if (v.Company.HasValue)
                     {
@@ -61,9 +57,9 @@ namespace ILAManagementPro.Data.Repositories
                             tempHeader.Company = this.BuildCompanyEntity(company);
                     }
                     tempHeader.WorkDetails = (List<WorkDetailEntity>)new List<WorkDetailEntity>();
-                    DbSet<DbWorkDetail> workDetails = ilaEntities.WorkDetails;
-                    Expression<Func<DbWorkDetail, bool>> predicate2 = (Expression<Func<DbWorkDetail, bool>>)(c => c.DateOfWork == tempHeader.DateWorked && c.Header == v.Header);
-                    foreach (DbWorkDetail wd in (IEnumerable<DbWorkDetail>)workDetails.Where<DbWorkDetail>(predicate2))
+                    DbSet<WorkDetail> workDetails = ilaEntities.WorkDetails;
+                    Expression<Func<WorkDetail, bool>> predicate2 = (Expression<Func<WorkDetail, bool>>)(c => c.DateOfWork == tempHeader.DateWorked && c.Header == v.Header);
+                    foreach (WorkDetail wd in (IEnumerable<WorkDetail>)workDetails.Where<WorkDetail>(predicate2))
                         ((List<WorkDetailEntity>)tempHeader.WorkDetails).Add(this.BuildDetailEntity(wd));
                     source.Add(tempHeader);
                 }
@@ -79,7 +75,7 @@ namespace ILAManagementPro.Data.Repositories
             {
                 using (ILAEntities ilaEntities = new ILAEntities())
                 {
-                    DbWorkHeader workHeader = ilaEntities.WorkHeaders.Where<DbWorkHeader>((Expression<Func<DbWorkHeader, bool>>)(b => b.CounterId == ID)).FirstOrDefault<DbWorkHeader>();
+                    WorkHeader workHeader = ilaEntities.WorkHeaders.Where<WorkHeader>((Expression<Func<WorkHeader, bool>>)(b => b.CounterId == ID)).FirstOrDefault<WorkHeader>();
                     if (workHeader != null)
                     {
                         ret = this.BuildHeaderEntity(workHeader);
@@ -90,9 +86,9 @@ namespace ILAManagementPro.Data.Repositories
                                 ret.Company = this.BuildCompanyEntity(company);
                         }
                         ret.WorkDetails = (List<WorkDetailEntity>)new List<WorkDetailEntity>();
-                        DbSet<DbWorkDetail> workDetails = ilaEntities.WorkDetails;
-                        Expression<Func<DbWorkDetail, bool>> predicate = (Expression<Func<DbWorkDetail, bool>>)(c => c.DateOfWork == ret.DateWorked && c.Header == workHeader.Header);
-                        foreach (DbWorkDetail workDetail in (IEnumerable<DbWorkDetail>)workDetails.Where<DbWorkDetail>(predicate))
+                        DbSet<WorkDetail> workDetails = ilaEntities.WorkDetails;
+                        Expression<Func<WorkDetail, bool>> predicate = (Expression<Func<WorkDetail, bool>>)(c => c.DateOfWork == ret.DateWorked && c.Header == workHeader.Header);
+                        foreach (WorkDetail workDetail in (IEnumerable<WorkDetail>)workDetails.Where<WorkDetail>(predicate))
                             ((List<WorkDetailEntity>)ret.WorkDetails).Add(this.BuildDetailEntity(workDetail));
                     }
                 }
@@ -111,20 +107,20 @@ namespace ILAManagementPro.Data.Repositories
                 return;
             using (ILAEntities ilaEntities = new ILAEntities())
             {
-                DbWorkHeader workHeader = ilaEntities.WorkHeaders.Where<DbWorkHeader>((Expression<Func<DbWorkHeader, bool>>)(b => b.CounterId == ID)).FirstOrDefault<DbWorkHeader>();
+                WorkHeader workHeader = ilaEntities.WorkHeaders.Where<WorkHeader>((Expression<Func<WorkHeader, bool>>)(b => b.CounterId == ID)).FirstOrDefault<WorkHeader>();
                 if (workHeader != null)
                 {
                     DateTime? nullable1 = (DateTime?)entity.DateWorked;
                     if (nullable1.HasValue)
                     {
-                        DbWorkHeader workHeader1 = workHeader;
+                        WorkHeader workHeader1 = workHeader;
                         nullable1 = (DateTime?)entity.DateWorked;
                         DateTime? nullable2 = new DateTime?(nullable1.Value);
                         workHeader1.DateWorked = nullable2;
                     }
                     else
                     {
-                        DbWorkHeader workHeader1 = workHeader;
+                        WorkHeader workHeader1 = workHeader;
                         nullable1 = new DateTime?();
                         DateTime? nullable2 = nullable1;
                         workHeader1.DateWorked = nullable2;
@@ -137,14 +133,14 @@ namespace ILAManagementPro.Data.Repositories
                     nullable1 = (DateTime?)entity.CheckInTime;
                     if (nullable1.HasValue)
                     {
-                        DbWorkHeader workHeader1 = workHeader;
+                        WorkHeader workHeader1 = workHeader;
                         nullable1 = (DateTime?)entity.CheckInTime;
                         DateTime? nullable2 = new DateTime?(nullable1.Value);
                         workHeader1.CheckInTime = nullable2;
                     }
                     else
                     {
-                        DbWorkHeader workHeader1 = workHeader;
+                        WorkHeader workHeader1 = workHeader;
                         nullable1 = new DateTime?();
                         DateTime? nullable2 = nullable1;
                         workHeader1.CheckInTime = nullable2;
@@ -153,14 +149,14 @@ namespace ILAManagementPro.Data.Repositories
                     nullable1 = (DateTime?)entity.CheckOutTime;
                     if (nullable1.HasValue)
                     {
-                        DbWorkHeader workHeader1 = workHeader;
+                        WorkHeader workHeader1 = workHeader;
                         nullable1 = (DateTime?)entity.CheckOutTime;
                         DateTime? nullable2 = new DateTime?(nullable1.Value);
                         workHeader1.CheckOutTime = nullable2;
                     }
                     else
                     {
-                        DbWorkHeader workHeader1 = workHeader;
+                        WorkHeader workHeader1 = workHeader;
                         nullable1 = new DateTime?();
                         DateTime? nullable2 = nullable1;
                         workHeader1.CheckOutTime = nullable2;
@@ -172,13 +168,13 @@ namespace ILAManagementPro.Data.Repositories
                     try
                     {
                         ilaEntities.SaveChanges();
-                        DbSet<DbWorkDetail> workDetails = ilaEntities.WorkDetails;
-                        Expression<Func<DbWorkDetail, bool>> predicate = (Expression<Func<DbWorkDetail, bool>>)(c => c.DateOfWork == entity.DateWorked && c.Header == workHeader.Header);
-                        foreach (DbWorkDetail entity1 in workDetails.Where<DbWorkDetail>(predicate).ToList<DbWorkDetail>())
+                        DbSet<WorkDetail> workDetails = ilaEntities.WorkDetails;
+                        Expression<Func<WorkDetail, bool>> predicate = (Expression<Func<WorkDetail, bool>>)(c => c.DateOfWork == entity.DateWorked && c.Header == workHeader.Header);
+                        foreach (WorkDetail entity1 in workDetails.Where<WorkDetail>(predicate).ToList<WorkDetail>())
                         {
                             ilaEntities.WorkDetails.Remove(entity1);
                             ilaEntities.SaveChanges();
-                            foreach (DbWorkDetail buildWorkDetail in this.BuildWorkDetails((List<WorkDetailEntity>)entity.WorkDetails))
+                            foreach (WorkDetail buildWorkDetail in this.BuildWorkDetails((List<WorkDetailEntity>)entity.WorkDetails))
                             {
                                 ilaEntities.WorkDetails.Add(buildWorkDetail);
                                 ilaEntities.SaveChanges();
@@ -214,11 +210,11 @@ namespace ILAManagementPro.Data.Repositories
             StringBuilder stringBuilder = new StringBuilder();
             using (ILAEntities ilaEntities = new ILAEntities())
             {
-                DbWorkHeader entity1 = new DbWorkHeader();
+                WorkHeader entity1 = new WorkHeader();
                 DateTime? nullable1;
                 if (((DateTime?)entity.DateWorked).HasValue)
                 {
-                    DbWorkHeader workHeader = entity1;
+                    WorkHeader workHeader = entity1;
                     nullable1 = (DateTime?)entity.DateWorked;
                     DateTime? nullable2 = new DateTime?(nullable1.Value);
                     workHeader.DateWorked = nullable2;
@@ -236,7 +232,7 @@ namespace ILAManagementPro.Data.Repositories
                 nullable1 = (DateTime?)entity.CheckInTime;
                 if (nullable1.HasValue)
                 {
-                    DbWorkHeader workHeader = entity1;
+                    WorkHeader workHeader = entity1;
                     nullable1 = (DateTime?)entity.CheckInTime;
                     DateTime? nullable2 = new DateTime?(nullable1.Value);
                     workHeader.CheckInTime = nullable2;
@@ -246,7 +242,7 @@ namespace ILAManagementPro.Data.Repositories
                 nullable1 = (DateTime?)entity.CheckOutTime;
                 if (nullable1.HasValue)
                 {
-                    DbWorkHeader workHeader = entity1;
+                    WorkHeader workHeader = entity1;
                     nullable1 = (DateTime?)entity.CheckOutTime;
                     DateTime? nullable2 = new DateTime?(nullable1.Value);
                     workHeader.CheckOutTime = nullable2;
@@ -262,7 +258,7 @@ namespace ILAManagementPro.Data.Repositories
                 {
                     ilaEntities.WorkHeaders.Add(entity1);
                     ilaEntities.SaveChanges();
-                    foreach (DbWorkDetail buildWorkDetail in this.BuildWorkDetails((List<WorkDetailEntity>)entity.WorkDetails))
+                    foreach (WorkDetail buildWorkDetail in this.BuildWorkDetails((List<WorkDetailEntity>)entity.WorkDetails))
                     {
                         ilaEntities.WorkDetails.Add(buildWorkDetail);
                         ilaEntities.SaveChanges();
@@ -308,7 +304,7 @@ namespace ILAManagementPro.Data.Repositories
                 return;
             using (ILAEntities ilaEntities = new ILAEntities())
             {
-                DbWorkHeader entity1 = ilaEntities.WorkHeaders.Where<DbWorkHeader>((Expression<Func<DbWorkHeader, bool>>)(b => b.CounterId == ID)).FirstOrDefault<DbWorkHeader>();
+                WorkHeader entity1 = ilaEntities.WorkHeaders.Where<WorkHeader>((Expression<Func<WorkHeader, bool>>)(b => b.CounterId == ID)).FirstOrDefault<WorkHeader>();
                 if (entity1 != null)
                 {
                     try
@@ -340,7 +336,7 @@ namespace ILAManagementPro.Data.Repositories
             }
         }
 
-        private WorkHeaderEntity BuildHeaderEntity(DbWorkHeader workHeader)
+        private WorkHeaderEntity BuildHeaderEntity(WorkHeader workHeader)
         {
             WorkHeaderEntity workHeaderEntity1 = new WorkHeaderEntity();
             workHeaderEntity1.Id = workHeader.CounterId.ToString();
@@ -375,7 +371,7 @@ namespace ILAManagementPro.Data.Repositories
             return workHeaderEntity1;
         }
 
-        private WorkDetailEntity BuildDetailEntity(DbWorkDetail workDetail)
+        private WorkDetailEntity BuildDetailEntity(WorkDetail workDetail)
         {
             WorkDetailEntity workDetailEntity = new WorkDetailEntity();
             workDetailEntity.Id = workDetail.DetlCounter.ToString();
@@ -422,16 +418,16 @@ namespace ILAManagementPro.Data.Repositories
             return companyEntity;
         }
 
-        private List<DbWorkDetail> BuildWorkDetails(List<WorkDetailEntity> list)
+        private List<WorkDetail> BuildWorkDetails(List<WorkDetailEntity> list)
         {
-            List<DbWorkDetail> workDetailList = new List<DbWorkDetail>();
+            List<WorkDetail> workDetailList = new List<WorkDetail>();
             foreach (WorkDetailEntity workDetailEntity in list)
             {
-                DbWorkDetail workDetail1 = new DbWorkDetail();
+                WorkDetail workDetail1 = new WorkDetail();
                 DateTime? nullable1 = (DateTime?)workDetailEntity.DateOfWork;
                 if (nullable1.HasValue)
                 {
-                    DbWorkDetail workDetail2 = workDetail1;
+                    WorkDetail workDetail2 = workDetail1;
                     nullable1 = (DateTime?)workDetailEntity.DateOfWork;
                     DateTime? nullable2 = new DateTime?(nullable1.Value);
                     workDetail2.DateOfWork = nullable2;
@@ -441,7 +437,7 @@ namespace ILAManagementPro.Data.Repositories
                 int? seq = (int?)workDetailEntity.Seq;
                 if (seq.HasValue)
                 {
-                    DbWorkDetail workDetail2 = workDetail1;
+                    WorkDetail workDetail2 = workDetail1;
                     seq = (int?)workDetailEntity.Seq;
                     int? nullable2 = new int?(seq.Value);
                     workDetail2.Seq = nullable2;
@@ -449,7 +445,7 @@ namespace ILAManagementPro.Data.Repositories
                 Decimal? cardNo = (Decimal?)workDetailEntity.CardNo;
                 if (cardNo.HasValue)
                 {
-                    DbWorkDetail workDetail2 = workDetail1;
+                    WorkDetail workDetail2 = workDetail1;
                     cardNo = (Decimal?)workDetailEntity.CardNo;
                     Decimal? nullable2 = new Decimal?(cardNo.Value);
                     workDetail2.CardNo = nullable2;
@@ -459,7 +455,7 @@ namespace ILAManagementPro.Data.Repositories
                 nullable1 = (DateTime?)workDetailEntity.CheckInTime;
                 if (nullable1.HasValue)
                 {
-                    DbWorkDetail workDetail2 = workDetail1;
+                    WorkDetail workDetail2 = workDetail1;
                     nullable1 = (DateTime?)workDetailEntity.CheckInTime;
                     DateTime? nullable2 = new DateTime?(nullable1.Value);
                     workDetail2.CheckInTime = nullable2;
@@ -469,7 +465,7 @@ namespace ILAManagementPro.Data.Repositories
                 nullable1 = (DateTime?)workDetailEntity.CheckOutTime;
                 if (nullable1.HasValue)
                 {
-                    DbWorkDetail workDetail2 = workDetail1;
+                    WorkDetail workDetail2 = workDetail1;
                     nullable1 = (DateTime?)workDetailEntity.CheckOutTime;
                     DateTime? nullable2 = new DateTime?(nullable1.Value);
                     workDetail2.CheckOutTime = nullable2;

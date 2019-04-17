@@ -90,7 +90,7 @@ namespace ILAManagementPro.Data.Repositories
                 }
                 DbNote entity1 = new DbNote();
                 entity1.CardNo = (Decimal?)entity.CardNo;
-                entity1.Note1 = entity.Content;
+                entity1.Content = entity.Content;
                 if (!string.IsNullOrEmpty(entity.User))
                     entity1.AddedUser = entity.User;
                 entity1.AddedDate = new DateTime?(DateTime.Now);
@@ -178,8 +178,8 @@ namespace ILAManagementPro.Data.Repositories
             noteEntity.Id = note.NoteId.ToString();
             if (note.CardNo.HasValue)
                 noteEntity.CardNo = (Decimal?)new Decimal?(note.CardNo.Value);
-            if (!string.IsNullOrWhiteSpace(note.Note1))
-                noteEntity.Content = note.Note1.Trim();
+            if (!string.IsNullOrWhiteSpace(note.Content))
+                noteEntity.Content = note.Content.Trim();
             return noteEntity;
         }
     }

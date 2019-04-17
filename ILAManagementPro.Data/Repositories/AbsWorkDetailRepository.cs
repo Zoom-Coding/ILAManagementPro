@@ -395,7 +395,7 @@ namespace ILAManagementPro.Data.Repositories
             {
                 using (ILAEntities ilaEntities = new ILAEntities())
                 {
-                    absWorkDetail detail = ilaEntities.absWorkDetails.Where<absWorkDetail>((Expression<Func<absWorkDetail, bool>>)(h => h.Id == ID)).FirstOrDefault<absWorkDetail>();
+                    absWorkDetail detail = ilaEntities.absWorkDetails.Where<absWorkDetail>((Expression<Func<absWorkDetail, bool>>)(h => h.id == ID)).FirstOrDefault<absWorkDetail>();
                     if (detail != null)
                     {
                         workDetailEntity = this.BuildEntity(detail);
@@ -513,7 +513,7 @@ namespace ILAManagementPro.Data.Repositories
             int entityId = Convert.ToInt32(entity.Id);
             using (ILAEntities ilaEntities = new ILAEntities())
             {
-                absWorkDetail absWorkDetail1 = ilaEntities.absWorkDetails.Where<absWorkDetail>((Expression<Func<absWorkDetail, bool>>)(h => h.Id == entityId)).FirstOrDefault<absWorkDetail>();
+                absWorkDetail absWorkDetail1 = ilaEntities.absWorkDetails.Where<absWorkDetail>((Expression<Func<absWorkDetail, bool>>)(h => h.id == entityId)).FirstOrDefault<absWorkDetail>();
                 if (absWorkDetail1 == null)
                     return;
                 absWorkDetail1.absWorkHeaderId = Convert.ToInt32(entity.Header.Id);
@@ -690,7 +690,7 @@ namespace ILAManagementPro.Data.Repositories
             int entityId = Convert.ToInt32(entity.Id);
             using (ILAEntities ilaEntities = new ILAEntities())
             {
-                absWorkDetail entity1 = ilaEntities.absWorkDetails.Where<absWorkDetail>((Expression<Func<absWorkDetail, bool>>)(h => h.Id == entityId)).FirstOrDefault<absWorkDetail>();
+                absWorkDetail entity1 = ilaEntities.absWorkDetails.Where<absWorkDetail>((Expression<Func<absWorkDetail, bool>>)(h => h.id == entityId)).FirstOrDefault<absWorkDetail>();
                 if (entity1 == null)
                     return;
                 try
@@ -724,7 +724,7 @@ namespace ILAManagementPro.Data.Repositories
         private absWorkDetailEntity BuildEntity(absWorkDetail detail)
         {
             absWorkDetailEntity workDetailEntity = new absWorkDetailEntity();
-            workDetailEntity.Id = detail.Id.ToString();
+            workDetailEntity.Id = detail.id.ToString();
             workDetailEntity.Header = this.GetHeader(detail.absWorkHeader);
             if (detail.Seq.HasValue)
                 workDetailEntity.Seq = (int?)new int?(detail.Seq.Value);
@@ -762,13 +762,13 @@ namespace ILAManagementPro.Data.Repositories
             WorkScheduleHeaderEntity scheduleHeaderEntity3 = scheduleHeaderEntity1;
             BerthEntity berthEntity1 = new BerthEntity();
             berthEntity1.Id = Header.absWorkScheduleHeader.BerthId.ToString();
-            berthEntity1.ShortBerthName = Header.absWorkScheduleHeader.Berth.BerthShortName;
+            berthEntity1.ShortBerthName = Header.absWorkScheduleHeader.absBerth.BerthShortName;
             BerthEntity berthEntity2 = berthEntity1;
             scheduleHeaderEntity3.Berth = berthEntity2;
             WorkScheduleHeaderEntity scheduleHeaderEntity4 = scheduleHeaderEntity1;
             VesselEntity vesselEntity1 = new VesselEntity();
             vesselEntity1.Id = Header.absWorkScheduleHeader.VesselId.ToString();
-            vesselEntity1.VesselName = Header.absWorkScheduleHeader.Vessel.VesselName;
+            vesselEntity1.VesselName = Header.absWorkScheduleHeader.absVessel.VesselName;
             VesselEntity vesselEntity2 = vesselEntity1;
             scheduleHeaderEntity4.Vessel = vesselEntity2;
             scheduleHeaderEntity1.ShiftTime = (DateTime)Header.absWorkScheduleHeader.ShiftTime;

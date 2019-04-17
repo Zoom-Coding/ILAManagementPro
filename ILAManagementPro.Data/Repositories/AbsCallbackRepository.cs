@@ -31,7 +31,7 @@ namespace ILAManagementPro.Data.Repositories
             using (ILAEntities ilaEntities = new ILAEntities())
             {
                 DbSet<absCallBack> absCallBacks = ilaEntities.absCallBacks;
-                Expression<Func<absCallBack, bool>> predicate = (Expression<Func<absCallBack, bool>>)(a => a.Active);
+                Expression<Func<absCallBack, bool>> predicate = (Expression<Func<absCallBack, bool>>)(a => a.active);
                 foreach (absCallBack CallBack in (IEnumerable<absCallBack>)absCallBacks.Where<absCallBack>(predicate))
                     source.Add(this.BuildEntity(CallBack));
             }
@@ -45,8 +45,8 @@ namespace ILAManagementPro.Data.Repositories
             using (ILAEntities ilaEntities = new ILAEntities())
             {
                 DbSet<absCallBack> absCallBacks = ilaEntities.absCallBacks;
-                Expression<Func<absCallBack, bool>> predicate = (Expression<Func<absCallBack, bool>>)(a => a.Active);
-                foreach (absCallBack CallBack in absCallBacks.Where<absCallBack>(predicate).ToList<absCallBack>().Where<absCallBack>((Func<absCallBack, bool>)(a => DateTime.Compare(a.CallBackDateTime.Date, _theDate) == 0)).ToList<absCallBack>())
+                Expression<Func<absCallBack, bool>> predicate = (Expression<Func<absCallBack, bool>>)(a => a.active);
+                foreach (absCallBack CallBack in absCallBacks.Where<absCallBack>(predicate).ToList<absCallBack>().Where<absCallBack>((Func<absCallBack, bool>)(a => DateTime.Compare(a.callBackDateTime.Date, _theDate) == 0)).ToList<absCallBack>())
                     source.Add(this.BuildEntity(CallBack));
             }
             return source.OrderBy<CallBackEntity, DateTime>((Func<CallBackEntity, DateTime>)(b => (DateTime)b.CallBackDateTime)).ToList<CallBackEntity>();
@@ -60,7 +60,7 @@ namespace ILAManagementPro.Data.Repositories
             {
                 using (ILAEntities ilaEntities = new ILAEntities())
                 {
-                    absCallBack CallBack = ilaEntities.absCallBacks.Where<absCallBack>((Expression<Func<absCallBack, bool>>)(b => b.Id == ID)).FirstOrDefault<absCallBack>();
+                    absCallBack CallBack = ilaEntities.absCallBacks.Where<absCallBack>((Expression<Func<absCallBack, bool>>)(b => b.id == ID)).FirstOrDefault<absCallBack>();
                     if (CallBack != null)
                         callBackEntity = this.BuildEntity(CallBack);
                 }
@@ -76,13 +76,13 @@ namespace ILAManagementPro.Data.Repositories
                 return;
             using (ILAEntities ilaEntities = new ILAEntities())
             {
-                absCallBack absCallBack = ilaEntities.absCallBacks.Where<absCallBack>((Expression<Func<absCallBack, bool>>)(b => b.Id == ID)).FirstOrDefault<absCallBack>();
+                absCallBack absCallBack = ilaEntities.absCallBacks.Where<absCallBack>((Expression<Func<absCallBack, bool>>)(b => b.id == ID)).FirstOrDefault<absCallBack>();
                 if (absCallBack != null)
                 {
-                    absCallBack.CardNumberId = Convert.ToDecimal(entity.Member.Id);
-                    absCallBack.PhoneNumber = entity.Phone.Trim();
-                    absCallBack.CallBackDateTime = (DateTime)entity.CallBackDateTime;
-                    absCallBack.Active = entity.Active;
+                    absCallBack.cardNumberId = Convert.ToDecimal(entity.Member.Id);
+                    absCallBack.phoneNumber = entity.Phone.Trim();
+                    absCallBack.callBackDateTime = (DateTime)entity.CallBackDateTime;
+                    absCallBack.active = entity.Active;
                     if (!string.IsNullOrEmpty(entity.User))
                         absCallBack.UpdateUser = entity.User.ToString();
                     absCallBack.UpdateDateTime = new DateTime?(DateTime.Now);
@@ -126,10 +126,10 @@ namespace ILAManagementPro.Data.Repositories
             using (ILAEntities ilaEntities = new ILAEntities())
             {
                 absCallBack entity1 = new absCallBack();
-                entity1.CardNumberId = Convert.ToDecimal(entity.Member.Id);
-                entity1.PhoneNumber = entity.Phone.Trim();
-                entity1.CallBackDateTime = (DateTime)entity.CallBackDateTime;
-                entity1.Active = entity.Active;
+                entity1.cardNumberId = Convert.ToDecimal(entity.Member.Id);
+                entity1.phoneNumber = entity.Phone.Trim();
+                entity1.callBackDateTime = (DateTime)entity.CallBackDateTime;
+                entity1.active = entity.Active;
                 if (!string.IsNullOrEmpty(entity.User))
                     entity1.AddUser = entity.User.ToString();
                 entity1.AddDateTime = new DateTime?(DateTime.Now);
@@ -175,7 +175,7 @@ namespace ILAManagementPro.Data.Repositories
                 return;
             using (ILAEntities ilaEntities = new ILAEntities())
             {
-                absCallBack entity1 = ilaEntities.absCallBacks.Where<absCallBack>((Expression<Func<absCallBack, bool>>)(b => b.Id == ID)).FirstOrDefault<absCallBack>();
+                absCallBack entity1 = ilaEntities.absCallBacks.Where<absCallBack>((Expression<Func<absCallBack, bool>>)(b => b.id == ID)).FirstOrDefault<absCallBack>();
                 if (entity1 != null)
                 {
                     try
@@ -216,10 +216,10 @@ namespace ILAManagementPro.Data.Repositories
         private CallBackEntity BuildEntity(absCallBack CallBack)
         {
             CallBackEntity callBackEntity1 = new CallBackEntity();
-            callBackEntity1.Id = CallBack.Id.ToString();
+            callBackEntity1.Id = CallBack.id.ToString();
             CallBackEntity callBackEntity2 = callBackEntity1;
             HeaderEntity headerEntity1 = new HeaderEntity();
-            headerEntity1.Id = CallBack.CardNumberId.ToString();
+            headerEntity1.Id = CallBack.cardNumberId.ToString();
             headerEntity1.FirstName = CallBack.InsuredMaster.FirstName;
             headerEntity1.MiddleInitial = CallBack.InsuredMaster.MI;
             headerEntity1.LastName = CallBack.InsuredMaster.LastName;
@@ -228,9 +228,9 @@ namespace ILAManagementPro.Data.Repositories
             headerEntity1.DisplayName = this.BuildHeaderDisplayName(CallBack.InsuredMaster.FirstName, CallBack.InsuredMaster.LastName);
             HeaderEntity headerEntity2 = headerEntity1;
             callBackEntity2.Member = headerEntity2;
-            callBackEntity1.Phone = CallBack.PhoneNumber.Trim();
-            callBackEntity1.CallBackDateTime = (DateTime)CallBack.CallBackDateTime;
-            callBackEntity1.Active = CallBack.Active;
+            callBackEntity1.Phone = CallBack.phoneNumber.Trim();
+            callBackEntity1.CallBackDateTime = (DateTime)CallBack.callBackDateTime;
+            callBackEntity1.Active = CallBack.active;
             return callBackEntity1;
         }
 

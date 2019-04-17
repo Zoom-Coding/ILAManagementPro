@@ -1,11 +1,18 @@
-﻿using System;
-
 namespace ILAManagementPro.Data.Data
 {
-    public class absWorkGangTemplate
-    {
-        public int Id { get; set; }
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
 
+    [Table("absWorkGangTemplate")]
+    public partial class absWorkGangTemplate
+    {
+        public int id { get; set; }
+
+        [Required]
+        [StringLength(200)]
         public string TemplateDescription { get; set; }
 
         public int TemplateCount { get; set; }
@@ -18,10 +25,12 @@ namespace ILAManagementPro.Data.Data
 
         public int DefaultWBGangId { get; set; }
 
+        [StringLength(50)]
         public string AddUser { get; set; }
 
         public DateTime? AddDateTime { get; set; }
 
+        [StringLength(50)]
         public string UpdateUser { get; set; }
 
         public DateTime? UpdateDateTime { get; set; }
