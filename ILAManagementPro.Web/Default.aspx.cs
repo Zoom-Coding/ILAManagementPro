@@ -7,8 +7,14 @@ namespace ILAManagementPro.Web
     public partial class _Default : Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-            SecurityBll.LogOutUser("absc");
+        {            
+            var user = "absc";
+
+            // Logs the user into schedule maintenance.
+            SecurityBll.LogInNewUser(user);
+
+            // Logs the user out of schedule maintenance.
+            //SecurityBll.LogOutUser(user);
         }
     }
 }
