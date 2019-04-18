@@ -7,7 +7,7 @@ namespace ILAManagementPro.Data.Data
     [Table("absvwMemberDetails")]
     public class absvwMemberDetail
     {
-        [Required]
+        [Key]
         public decimal CardNo { get; set; }
 
         [StringLength(20)]

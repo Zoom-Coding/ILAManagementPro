@@ -5,7 +5,7 @@ namespace ILAManagementPro.Data.Data
 {
     public class absvwWorkSchedule
     {
-        [Required]
+        [Key]
         public int Id { get; set; }
 
         [StringLength(11)]

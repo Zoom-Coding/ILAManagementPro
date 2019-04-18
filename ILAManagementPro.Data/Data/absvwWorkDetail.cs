@@ -7,7 +7,7 @@ namespace ILAManagementPro.Data.Data
     [Table("absvwWorkDetails")]
     public class absvwWorkDetail
     {
-        [Required]
+        [Key]
         public int WorkDetailId { get; set; }
 
         [Required]

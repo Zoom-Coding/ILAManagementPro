@@ -8,7 +8,7 @@ namespace ILAManagementPro.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            SecurityBll.LogInNewUser("kglover");
+            SecurityBll.LogOutUser("absc");
         }
     }
 }
