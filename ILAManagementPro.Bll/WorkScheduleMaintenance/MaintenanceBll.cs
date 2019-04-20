@@ -8,17 +8,17 @@ namespace ILAManagementPro.Bll.WorkScheduleMaintenance
 {
     public class MaintenanceBll
     {
-        internal static List<WorkGangDescriptionEntity> GetWorkGangDescriptions()
+        public static List<WorkGangDescriptionEntity> GetWorkGangDescriptions()
         {
             return new AbsWorkGangDescriptionRepository().GetAll().OrderBy<WorkGangDescriptionEntity, string>((Func<WorkGangDescriptionEntity, string>)(g => g.WorkGangDescription)).ToList<WorkGangDescriptionEntity>();
         }
 
-        internal static void UpdateWorkGangDescription(WorkGangDescriptionEntity gang)
+        public static void UpdateWorkGangDescription(WorkGangDescriptionEntity gang)
         {
             new AbsWorkGangDescriptionRepository().Update(gang);
         }
 
-        internal static List<HeaderEntity> GetAllAvailableMembers(bool header)
+        public static List<HeaderEntity> GetAllAvailableMembers(bool header)
         {
             List<HeaderEntity> headerEntityList = new List<HeaderEntity>();
             return !header ? new HeaderRepository().GetAll().Where<HeaderEntity>((Func<HeaderEntity, bool>)(c =>
@@ -34,28 +34,28 @@ namespace ILAManagementPro.Bll.WorkScheduleMaintenance
             })).OrderBy<HeaderEntity, string>((Func<HeaderEntity, string>)(s => s.LastName)).ThenBy<HeaderEntity, string>((Func<HeaderEntity, string>)(s => s.FirstName)).ToList<HeaderEntity>();
         }
 
-        internal static BerthEntity AddNewBerth(BerthEntity berth)
+        public static BerthEntity AddNewBerth(BerthEntity berth)
         {
             AbsBerthRepository absBerthRepository = new AbsBerthRepository();
             absBerthRepository.Add(berth);
             return absBerthRepository.GetAll().Where<BerthEntity>((Func<BerthEntity, bool>)(s => s.ShortBerthName.ToUpper().Trim() == berth.ShortBerthName.ToUpper().Trim())).FirstOrDefault<BerthEntity>();
         }
 
-        internal static ShiftEntity AddNewShift(ShiftEntity shift)
+        public static ShiftEntity AddNewShift(ShiftEntity shift)
         {
             AbsShiftTimeRepository shiftTimeRepository = new AbsShiftTimeRepository();
             shiftTimeRepository.Add(shift);
             return shiftTimeRepository.GetAll().Where<ShiftEntity>((Func<ShiftEntity, bool>)(s => s.MilitaryTime.ToUpper().Trim() == shift.MilitaryTime.ToUpper().Trim())).FirstOrDefault<ShiftEntity>();
         }
 
-        internal static VesselEntity AddNewVessel(VesselEntity vessel)
+        public static VesselEntity AddNewVessel(VesselEntity vessel)
         {
             absVesselRepository vesselRepository = new absVesselRepository();
             vesselRepository.Add(vessel);
             return vesselRepository.GetAll().Where<VesselEntity>((Func<VesselEntity, bool>)(s => s.VesselName.ToUpper().Trim() == vessel.VesselName.ToUpper().Trim())).FirstOrDefault<VesselEntity>();
         }
 
-        internal static WorkGangDescriptionEntity AddNewWorkGang(
+        public static WorkGangDescriptionEntity AddNewWorkGang(
           WorkGangDescriptionEntity gang)
         {
             AbsWorkGangDescriptionRepository descriptionRepository = new AbsWorkGangDescriptionRepository();
@@ -63,17 +63,17 @@ namespace ILAManagementPro.Bll.WorkScheduleMaintenance
             return descriptionRepository.GetAll().Where<WorkGangDescriptionEntity>((Func<WorkGangDescriptionEntity, bool>)(s => s.WorkGangDescription.ToUpper().Trim() == gang.WorkGangDescription.ToUpper().Trim())).FirstOrDefault<WorkGangDescriptionEntity>();
         }
 
-        internal static List<absWorkGangTemplateEntity> GetWorkGangTemplates()
+        public static List<absWorkGangTemplateEntity> GetWorkGangTemplates()
         {
             return new absWorkGangTemplateRepository().GetAll();
         }
 
-        internal static void AddWorkGangTemplate(absWorkGangTemplateEntity dto)
+        public static void AddWorkGangTemplate(absWorkGangTemplateEntity dto)
         {
             new absWorkGangTemplateRepository().Add(dto);
         }
 
-        internal static void UpdateWorkGangTemplate(absWorkGangTemplateEntity dto)
+        public static void UpdateWorkGangTemplate(absWorkGangTemplateEntity dto)
         {
             new absWorkGangTemplateRepository().Update(dto);
         }

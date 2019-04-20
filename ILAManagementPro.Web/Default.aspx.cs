@@ -13,6 +13,8 @@ namespace ILAManagementPro.Web
             // Logs the user into schedule maintenance.
             SecurityBll.LogInNewUser(user);
 
+            var shifts = WorkHeaderBll.GetShifts();
+
             // Logs the user out of schedule maintenance.
             //SecurityBll.LogOutUser(user);
         }

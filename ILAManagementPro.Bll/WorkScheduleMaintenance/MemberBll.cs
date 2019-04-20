@@ -43,7 +43,7 @@ namespace ILAManagementPro.Bll.WorkScheduleMaintenance
             return headerEntity2;
         }
 
-        internal static void AddWorkScheduleMaintSecurity(
+        public static void AddWorkScheduleMaintSecurity(
           HeaderEntity _memberUser,
           HeaderEntity _authorUser)
         {
@@ -68,32 +68,32 @@ namespace ILAManagementPro.Bll.WorkScheduleMaintenance
             }
         }
 
-        internal static void AddMemberDailySuspension(NoteEntity note)
+        public static void AddMemberDailySuspension(NoteEntity note)
         {
             new MemberSuspendRepository().Add(note);
         }
 
-        internal static List<CallBackEntity> GetActiveCallBacksByDate(DateTime date)
+        public static List<CallBackEntity> GetActiveCallBacksByDate(DateTime date)
         {
             return new AbsCallBackRepository().GetAllActiveByDate(date);
         }
 
-        internal static List<CallBackEntity> GetActiveCallBacks()
+        public static List<CallBackEntity> GetActiveCallBacks()
         {
             return new AbsCallBackRepository().GetAllActive().Where<CallBackEntity>((Func<CallBackEntity, bool>)(c => (DateTime)c.CallBackDateTime < DateTime.Now.Date)).ToList<CallBackEntity>();
         }
 
-        internal static void AddCallBack(CallBackEntity callback)
+        public static void AddCallBack(CallBackEntity callback)
         {
             new AbsCallBackRepository().Add(callback);
         }
 
-        internal static void DeleteCallBack(CallBackEntity callback)
+        public static void DeleteCallBack(CallBackEntity callback)
         {
             new AbsCallBackRepository().Delete(callback);
         }
 
-        internal static void UpdateCallBack(CallBackEntity callback)
+        public static void UpdateCallBack(CallBackEntity callback)
         {
             new AbsCallBackRepository().Update(callback);
         }

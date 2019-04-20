@@ -67,22 +67,22 @@ namespace ILAManagementPro.Bll.WorkScheduleMaintenance
             scheduleLoginRepository.Delete(byUserId);
         }
 
-        internal static UserSecurityEntity GetUserSecurity(string user)
+        public static UserSecurityEntity GetUserSecurity(string user)
         {
             return new UserSecurityRepository().GetByLogIn(user);
         }
 
-        internal static List<UserSecurityEntity> GetUserSecurity()
+        public static List<UserSecurityEntity> GetUserSecurity()
         {
             return new UserSecurityRepository().GetAll().OrderBy<UserSecurityEntity, string>((Func<UserSecurityEntity, string>)(c => c.LogIn)).ToList<UserSecurityEntity>();
         }
 
-        internal static void UpdateUserSecurity(UserSecurityEntity user)
+        public static void UpdateUserSecurity(UserSecurityEntity user)
         {
             new UserSecurityRepository().Update(user);
         }
 
-        internal static bool AlreadyLoggedIn(string user)
+        public static bool AlreadyLoggedIn(string user)
         {
             AbsScheduleLoginRepository scheduleLoginRepository = new AbsScheduleLoginRepository();
             if (user == null)
@@ -90,7 +90,7 @@ namespace ILAManagementPro.Bll.WorkScheduleMaintenance
             return scheduleLoginRepository.GetByUserId(ConfigurationBLL.ProgramName, user) != null;
         }
 
-        private static void Login(string user)
+        public static void Login(string user)
         {
             new AbsScheduleLoginRepository().Add(new absScheduleLoginEntity()
             {
