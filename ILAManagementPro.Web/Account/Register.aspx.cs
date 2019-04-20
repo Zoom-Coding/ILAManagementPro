@@ -15,8 +15,8 @@ namespace ILAManagementPro.Web.Account
         {
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
-            var user = new ApplicationUser() { UserName = Email.Text, Email = Email.Text };
-            IdentityResult result = manager.Create(user, Password.Text);
+            var user = new ApplicationUser() { UserName = txtEmail.Text, Email = txtEmail.Text };
+            IdentityResult result = manager.Create(user, txtPassword.Text);
             if (result.Succeeded)
             {
                 // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
@@ -31,6 +31,11 @@ namespace ILAManagementPro.Web.Account
             {
                 ErrorMessage.Text = result.Errors.FirstOrDefault();
             }
+        }
+
+        protected void Email_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
