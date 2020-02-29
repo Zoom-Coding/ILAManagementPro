@@ -1,2 +1,2 @@
 # ILAManagementPro
-Repository for development of ILA Winforms to Webforms
+Repository for development of ILA Winforms to Webforms (Project Dissolved)
